@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>6.2.1.2 Cable and the Electromagnetic Spectrum</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_6.2.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Comparing Broadband Solutions</h1>
+        <h2>Cable</h2>
+      </div>
+      <div id="content">
+          <p>The electromagnetic spectrum encompasses a broad range of frequencies. </p>
+          <p></p>
+          <p>Frequency is the rate at which current, or voltage, cycles occur. Frequency is computed as the number of waves per second. Wavelength is the distance from the peak of one wave to the peak of the next wave. Wavelength is calculated as the speed of propagation of the electromagnetic signal divided by its frequency in cycles per second. </p>
+          <p></p>
+          <p>Radio waves, often called RF, constitute a portion of the electromagnetic spectrum between approximately 1 kHz and 1 THz, as indicated in the figure. When users tune a radio or television to find different radio stations or television channels, they are tuning to different electromagnetic frequencies across that RF spectrum. The same principle applies to the cable system.</p>
+          <p></p>
+          <p>The cable TV industry uses a portion of the RF electromagnetic spectrum. Within the cable, different frequencies carry TV channels and data. At the subscriber end, equipment such as TVs, Blu-ray players, DVRs, and HDTV set-top boxes tune to certain frequencies that allow the user to view the channel or use a cable modem to receive high-speed Internet access.</p>
+          <p></p>
+          <p>A cable network is capable of transmitting signals on the cable in either direction at the same time. The following frequency scopes are used:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Downstream </b>- The direction of an RF signal transmission, such as TV channels and data, from the source, or headend, to the destination, or subscribers. Transmission from source to destination is called the forward path. Downstream frequencies are in the range of 50 to 860 MHz.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Upstream </b>- The direction of the RF signal transmission from subscribers to the headend. Upstream frequencies are in the range of 5 to 42 MHz.</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

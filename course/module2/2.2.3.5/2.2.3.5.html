@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>2.2.3.5 VPN Technology</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_2.2.3.5_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Selecting a WAN Technology</h1>
+        <h2>Public WAN Infrastructure</h2>
+      </div>
+      <div id="content">
+          <p>Security risks are incurred when a teleworker or a remote office worker uses broadband services to access the corporate WAN over the Internet. To address security concerns, broadband services provide capabilities for using VPN connections to a VPN server, which is typically located at the corporate site. </p>
+          <p></p>
+          <p>A VPN is an encrypted connection between private networks over a public network, such as the Internet. Instead of using a dedicated Layer 2 connection, such as a leased line, a VPN uses virtual connections called VPN tunnels, which are routed through the Internet from the private network of the company to the remote site or employee host. </p>
+          <p></p>
+          <p>Benefits of VPN include the following:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Cost savings </b>- VPNs enable organizations to use the global Internet to connect remote offices and remote users to the main corporate site, thus eliminating expensive, dedicated WAN links and modem banks.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Security </b>- VPNs provide the highest level of security by using advanced encryption and authentication protocols that protect data from unauthorized access. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Scalability </b>- Because VPNs use the Internet infrastructure within ISPs and devices, it is easy to add new users. Corporations are able to add large amounts of capacity without adding significant infrastructure.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Compatibility with broadband technology </b>- VPN technology is supported by broadband service providers such as DSL and cable, so mobile workers and telecommuters can take advantage of their home high-speed Internet service to access their corporate networks. Business-grade, high-speed broadband connections can also provide a cost-effective solution for connecting remote offices.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>There are two types of VPN access:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Site-to-site VPNs </b>- Site-to-site VPNs connect entire networks to each other; for example, they can connect a branch office network to a company headquarters network, as shown in Figure 1. Each site is equipped with a VPN gateway, such as a router, firewall, VPN concentrator, or security appliance. In the figure, a remote branch office uses a site-to-site-VPN to connect with the corporate head office. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Remote-access VPNs </b>- Remote-access VPNs enable individual hosts, such as telecommuters, mobile users, and extranet consumers, to access a company network securely over the Internet. Each host (Teleworker 1 and Teleworker 2) typically has VPN client software loaded or uses a web-based client, as shown in Figure 2. </li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

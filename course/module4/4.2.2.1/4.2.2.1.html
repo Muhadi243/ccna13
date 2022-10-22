@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.2.2.1 Reachability Issues</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.2.2.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Configure Frame Relay</h1>
+        <h2>Configure Subinterfaces</h2>
+      </div>
+      <div id="content">
+          <p>By default, most Frame Relay networks provide NBMA connectivity, using a hub-and-spoke topology, between remote sites. In an NBMA Frame Relay topology, when a single multipoint interface must be used to interconnect multiple sites, routing update reachability issues may result. With distance vector routing protocols, reachability issues may result from split horizon and multicast or broadcast replication. With link state routing protocols, issues with the DR/BDR election may result in reachability issues.</p>
+          <p></p>
+          <p>
+            <b>Split Horizon </b>
+          </p>
+          <p>The split horizon rule is a loop prevention mechanism for distance vector routing protocols such as EIGRP and RIP. It is not applicable to link-state routing protocols. Split horizon rule reduces routing loops by preventing a routing update that is received on an interface from being forwarded out the same interface. </p>
+          <p></p>
+          <p>For example, in Figure 1, which is a hub-and-spoke Frame Relay topology, a remote router R2 (a spoke router) sends an update to the headquarters router R1 (the hub router). R1 is connecting multiple PVCs over a single physical interface. R1 receives the multicast on its physical interface; however, split horizon cannot forward that routing update through the same interface to other remote (spoke) routers.</p>
+          <p></p>
+          <p>
+            <b>Note</b>: Split horizon is not an issue if only one PVC (a single remote connection) is configured on a physical interface. This type of connection is point-to-point.</p>
+          <p></p>
+          <p>Figure 2 displays a similar example using the reference topology used throughout this chapter. R2, a spoke router, sends a routing update to R1, a hub router. R1 has multiple PVCs on a single physical interface. The split horizon rule prevents R1 from forwarding that routing update through the same physical interface to the other remote spoke router (R3). </p>
+          <p></p>
+          <p>
+            <b>Multicast and Broadcast Replication</b>
+          </p>
+          <p></p>
+          <p>As shown in Figure 3, due to split horizon, when a router supports multipoint connections over a single interface, the router must replicate broadcast or multicast packets. In the case of routing updates, the updates must be replicated and sent on each PVC to the remote routers. These replicated packets consume bandwidth and cause significant latency variations in user traffic. The amount of broadcast traffic and the number of VCs terminating at each router should be evaluated during the design phase of a Frame Relay network. Overhead traffic, such as routing updates, can affect the delivery of critical user data, especially when the delivery path contains low-bandwidth (56 kb/s) links.</p>
+          <p></p>
+          <p>
+            <b>Neighbor Discovery: DR and BDR</b>
+          </p>
+          <p></p>
+          <p>Link-state routing protocols, such as OSPF, does not use the split horizon rule for loop prevention. However, reachability issues can arise with the DR/BDR. OSPF over NBMA networks works in non-broadcast network mode, by default, and neighbors are not automatically discovered. Neighbors can be statically configured. However, ensure that the hub router becomes a DR, as shown in Figure 4. Recall that a NBMA network behaves like Ethernet, and on Ethernet, a DR is needed to exchange routing information between all routers on a segment. Therefore, only the hub router can act as a DR, because it is the only router that has PVCs with all other routers.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

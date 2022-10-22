@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>6.1.1.4 Individual Benefits of Teleworking</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_6.1.1.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Teleworking</h1>
+        <h2>Benefits of Teleworking</h2>
+      </div>
+      <div id="content">
+          <p>Individuals also gain significant benefits from being able to work remotely, including:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>
+                <b>Productivity </b>- Over 70 percent of teleworkers claim they are significantly more productive, which means they do more in less time; thus, saving time or earning more in the same time.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Flexibility </b>- Teleworkers can better manage when and where work is performed. They have more flexibility to handle many other details of modern life, like getting the car serviced, avoiding the traffic at holiday weekends, and taking children to the doctor. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Cost savings </b>- Employees that must commute to an office spend a significant amount of money adding up vehicle fuel and maintenance, lunches, work clothes, eating out, and all the other costs of traditional work that one can reduce by teleworking.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Home and family </b>- For many people, spending more time with the family or caring for dependent relatives is a major reason for teleworking. </li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

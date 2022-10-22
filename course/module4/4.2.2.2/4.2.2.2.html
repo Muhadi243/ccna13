@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.2.2.2 Solving Reachability Issues</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.2.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Configure Frame Relay</h1>
+        <h2>Configure Subinterfaces</h2>
+      </div>
+      <div id="content">
+          <p>There are several ways to solve the routing reachability issue:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>
+                <b>Disable split horizon </b>- One method for solving the reachability issues that are produced by split horizon may be to turn off split horizon. However, disabling split horizon increases the chances of routing loops in your network. Additionally, only IP allows the ability to disable split horizon; IPX and AppleTalk do not.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Full meshed topology </b>- Another method is to use a fully meshed topology; however, this topology increases costs.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Subinterfaces </b>- In a hub-and-spoke Frame Relay topology, the hub router can be configured with logically assigned interfaces called subinterfaces.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>
+            <b>Frame Relay Subinterfaces</b>
+          </p>
+          <p>Frame Relay can partition a physical interface into multiple virtual interfaces called subinterfaces, as shown in Figure 1. A subinterface is simply a logical interface that is directly associated with a physical interface. Therefore, a Frame Relay subinterface can be configured for each of the PVCs coming into a physical serial interface.</p>
+          <p></p>
+          <p>To enable the forwarding of broadcast routing updates in a Frame Relay network, you can configure the router with logically assigned subinterfaces. Using a subinterface configuration, each VC can be configured as a point-to-point connection. A partially meshed network can be divided into a number of smaller, fully meshed, point-to-point networks. Each point-to-point subnetwork can be assigned a unique network address. This allows each subinterface to act similarly to a leased line. Using a Frame Relay point-to-point subinterface, each pair of the point-to-point routers is on its own subnet. This allows packets received on one subinterface to be sent out another subinterface, even though the packets are being forwarded out the same physical interface.</p>
+          <p></p>
+          <p>Frame Relay subinterfaces can be configured in either point-to-point or multipoint mode:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>
+                <b>Point-to-point </b>(Figure 2) - A single point-to-point subinterface establishes one PVC connection to another physical interface or subinterface on a remote router. In this case, each pair of the point-to-point routers is on its own subnet, and each point-to-point subinterface has a single DLCI. In a point-to-point environment, each subinterface is acting like a point-to-point interface. For each point-to-point VC, there is a separate subnet. Therefore, routing update traffic is not subject to the split horizon rule. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Multipoint </b>(Figure 3) - A single multipoint subinterface establishes multiple PVC connections to multiple physical interfaces or subinterfaces on remote routers. All the participating interfaces are in the same subnet. The subinterface acts like an NBMA Frame Relay interface, so routing update traffic is subject to the split horizon rule. All multipoint VCs belong to the same subnet.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>When configuring subinterfaces, the<span class="cmd"><b> encapsulation frame-relay </b></span>command is assigned to the physical interface. All other configuration items, such as the network layer address and DLCIs, are assigned to the subinterface. </p>
+          <p></p>
+          <p>The multipoint subinterface configurations can be used to conserve addresses. This can be especially helpful if Variable Length Subnet Masking (VLSM) is not being used. However, multipoint configurations may not work properly given the broadcast traffic and split horizon considerations. The point-to-point subinterface option was created to avoid these issues.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

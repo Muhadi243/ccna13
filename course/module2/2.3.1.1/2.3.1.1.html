@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>2.3.1.1 Class Activity - WAN Device Modules</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_2.3.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Summary</h1>
+        <h2>Summary</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>WAN Device Modules</b>
+          </p>
+          <p></p>
+          <p>Your medium-sized company is upgrading its network. To make the most of the equipment currently in use, you decide to purchase WAN modules instead of new equipment.</p>
+          <p></p>
+          <p>All branch offices use either Cisco 1900 or 2911 series ISRs. You will be updating these routers in several locations. Each branch has its own ISP requirements to consider.</p>
+          <p></p>
+          <p>To update the devices, focus on the following WAN modules access types:</p>
+          <p>
+            <ul>
+              <li>Ethernet</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Broadband</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>T1/E1 and ISDN PRI</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>BRI</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Serial</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>T1 and E1 Trunk Voice and WAN</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Wireless LANs and WANs</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>
+            <a href="../../files/2.3.1.1%20WAN%20Device%20Modules%20Instructions.pdf" target="_blank">Class Activity - WAN Device Modules</a>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

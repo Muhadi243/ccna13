@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1.1.2.3 The Distribution Layer</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_1.1.2.3_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Hierarchical Network Design Overview</h1>
+        <h2>Hierarchical Network Design</h2>
+      </div>
+      <div id="content">
+          <p>The distribution layer aggregates the data received from the access layer switches before it is transmitted to the core layer for routing to its final destination. In the figure, the distribution layer is the boundary between the Layer 2 domains and the Layer 3 routed network. </p>
+          <p></p>
+          <p>The distribution layer device is the focal point in the wiring closets. Either a router or a multilayer switch is used to segment workgroups and isolate network problems in a campus environment.</p>
+          <p></p>
+          <p>A distribution layer switch may provide upstream services for many access layer switches.</p>
+          <p></p>
+          <p>The distribution layer can provide:</p>
+          <p>
+            <ul>
+              <li>Aggregation of LAN or WAN links</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Policy-based security in the form of access control lists (ACLs) and filtering</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Routing services between LANs and VLANs and between routing domains (e.g., EIGRP to OSPF) </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Redundancy and load balancing</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>A boundary for route aggregation and summarization configured on interfaces toward the core layer</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Broadcast domain control, because routers or multilayer switches do not forward broadcasts. The device acts as the demarcation point between broadcast domains</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

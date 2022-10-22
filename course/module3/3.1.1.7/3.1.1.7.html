@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.1.1.7 Demarcation Point</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.1.1.7_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Serial Point-to-Point Overview</h1>
+        <h2>Serial Communications</h2>
+      </div>
+      <div id="content">
+          <p>Prior to deregulation in North America and other countries, telephone companies owned the local loop, including the wiring and equipment on the premises of the customers. The local loop refers to the line from the premises of a telephone subscriber to the telephone company central office. Deregulation forced telephone companies to unbundle their local loop infrastructure to allow other suppliers to provide equipment and services. This led to a need to delineate which part of the network the telephone company owned and which part the customer owned. This point of delineation is the demarcation point, or demarc. The demarcation point marks the point where your network interfaces with a network that is owned by another organization. In telephone terminology, this is the interface between customer premises equipment (CPE) and network service provider equipment. The demarcation point is the point in the network where the responsibility of the service provider ends, as shown in Figure 1. </p>
+          <p></p>
+          <p>The differences in demarcation points can best be shown using ISDN. In the United States, a service provider provides the local loop into the customer premises, and the customer provides the active equipment such as the CSU/DSU on which the local loop is terminated. This termination often occurs in a telecommunications closet, and the customer is responsible for maintaining, replacing, or repairing the equipment. In other countries, the network terminating unit (NTU) is provided and managed by the service provider. This allows the service provider to actively manage and troubleshoot the local loop with the demarcation point occurring after the NTU. The customer connects a CPE device, such as a router or Frame Relay access device, to the NTU using a V.35 or RS-232 serial interface.</p>
+          <p></p>
+          <p>A router serial port is required for each leased-line connection. If the underlying network is based on the T-carrier or E-carrier technologies, the leased line connects to the network of the carrier through a CSU/DSU. The purpose of the CSU/DSU is to provide a clocking signal to the customer equipment interface from the DSU and terminate the channelized transport media of the carrier on the CSU. The CSU also provides diagnostic functions such as a loopback test. </p>
+          <p></p>
+          <p>As shown in Figure 2, most T1 or E1 TDM interfaces on current routers include CSU/DSU capabilities. A separate CSU/DSU is not required because this functionality is embedded in the interface. IOS commands are used to configure the CSU/DSU operations.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1.0.1.2 Class Activity - Design Hierarchy</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_1.0.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Hierarchical Network Design</h1>
+        <h2>Introduction</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Design Hierarchy</b>
+          </p>
+          <p></p>
+          <p>A network administrator is tasked with designing an expanded network for the company. </p>
+          <p>After speaking with network administrators in other branches of the company, it was decided to use the Cisco three-layer hierarchical network design model to influence the expansion. This model was chosen for its simple influence upon network planning. </p>
+          <p>The three layers of the expanded network design include: </p>
+          <p>
+            <ul>
+              <li>Access </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Distribution </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Core </li>
+            </ul>
+          </p>
+          <p></p>
+          <p>
+            <a href="../../files/1.0.1.2%20Design%20Hierarchy%20Instructions.pdf" target="_blank">Class Activity - Design Hierarchy</a>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

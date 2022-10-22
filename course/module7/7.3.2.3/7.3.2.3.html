@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.3.2.3 Diffie-Hellman Key Exchange</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.3.2.3_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Introducing IPsec</h1>
+        <h2>IPsec Framework</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Data Integrity</b>
+          </p>
+          <p></p>
+          <p>Diffie-Hellman (DH) is not an encryption mechanism and is not typically used to encrypt data. Instead, it is a method to securely exchange the keys that encrypt data. (DH) algorithms allow two parties to establish a shared secret key that is used by encryption and hash algorithms. </p>
+          <p></p>
+          <p>Introduced by Whitfield Diffie and Martin Hellman in 1976, DH was the first system to utilize public key or asymmetric cryptographic keys. Today, DH is part of the IPsec standard. Also, a protocol known as OAKLEY uses a DH algorithm. OAKLEY is used by the IKE protocol, which is part of the overall framework called Internet Security Association and Key Management Protocol.</p>
+          <p></p>
+          <p>Encryption algorithms such as DES, 3DES, and AES, as well as the MD5 and SHA-1 hashing algorithms require a symmetric, shared secret key to perform encryption and decryption. How do the encrypting and decrypting devices get the shared secret key? The easiest key exchange method is a public key exchange method between the encrypting and decrypting devices.</p>
+          <p></p>
+          <p>The DH algorithm specifies a public key exchange method that provides a way for two peers to establish a shared secret key that only they know, although they are communicating over an insecure channel. Like all cryptographic algorithms, DH key exchange is based on a mathematical sequence of steps. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

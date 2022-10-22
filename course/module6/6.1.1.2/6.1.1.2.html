@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>6.1.1.2 Employer Benefits of Teleworking</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_6.1.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Teleworking</h1>
+        <h2>Benefits of Teleworking</h2>
+      </div>
+      <div id="content">
+          <p>For organizations, there are many benefits of offering a teleworking environment. Some of the most cited benefits include:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>
+                <b>Improved employee productivity </b>- In general, teleworking allows employees to do more and maintain better quality work, than those workers confined exclusively to an office space. According to a British Telecom Study by the Gartner Group, the average telecommuter works 11 percent more hours than an office counterpart. The Bell Atlantic Corporation (now Verizon) cited that 25 hours spent working at home is the equivalent of 40 office hours. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Reduced costs and expenses </b>- A major expense in many organizations is the cost of real estate. Teleworking means reduced requirements for office space. Savings in real estate cost have the potential of equaling anywhere from 10 to 80 percent. Even a 10 percent saving in real estate costs may be the difference between profit and loss. Additional savings include: heating, air-conditioning, car parks, lighting, office equipment and supplies, as all these costs, and more, drop as staff take up telework. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Easier recruitment and retention </b>- Being able to offer flexibility can reduce staff turnover by up to 20 percent. With staff replacement costing 75 percent or more of salary, this is a significant saving, even before training and retention costs are considered. Some observers have calculated that the cost of turnover and replacing staff is as high as 250 percent of salary.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Reduced absenteeism </b>- Telework can reduce absenteeism by as much as 80 percent.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Improved morale </b>- Improvements that offer the option of telework are often seen as family-friendly employers.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Improved corporate citizenship </b>- Allowing employees to work from home, and reducing the commuting emissions of a company's employees can be an important part of an organization’s plan to become carbon neutral and environmentally responsible. This can have many benefits, including: creating marketing opportunities, adding value to products and services, addressing concerns expressed by customers, and responding to supply chain requirements. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Improved customer service </b>- With staff able to start their working day without first commuting to the office, clients and customers will experience improved contact and response times leading to large improvements in client retention and value. Clients and customers report quicker response and better service.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>With better response times, better customer service, lower costs, and increased employee productivity, enterprises are better able to compete in rapidly changing markets. Teleworking really is a smart way to do business. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

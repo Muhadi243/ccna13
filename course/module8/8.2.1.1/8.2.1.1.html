@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>8.2.1.1 Introduction to SNMP</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_8.2.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>SNMP</h1>
+        <h2>SNMP Operation</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Simple Network Management (SNMP)</b>
+          </p>
+          <p>SNMP was developed to allow administrators to manage nodes, such as servers, workstations, routers, switches, and security appliances, on an IP network. It enables network administrators to manage network performance, find and solve network problems, and plan for network growth. </p>
+          <p></p>
+          <p>SNMP is an application layer protocol that provides a message format for communication between managers and agents. The SNMP system consists of three elements:</p>
+          <p>
+            <ul>
+              <li>SNMP manager </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>SNMP agents (managed node)</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Management Information Base (MIB) </li>
+            </ul>
+          </p>
+          <p></p>
+          <p>To configure SNMP on a networking device, it is first necessary to define the relationship between the manager and the agent.</p>
+          <p></p>
+          <p>The SNMP manager is part of a network management system (NMS). The SNMP manager runs SNMP management software. As shown in the figure, the SNMP manager can collect information from an SNMP agent using the “get” action and can change configurations on an agent using the “set” action. In addition, SNMP agents can forward information directly to an NMS using “traps”. </p>
+          <p></p>
+          <p>The SNMP agent and MIB reside on networking device clients. Network devices that must be managed, such as switches, routers, servers, firewalls, and workstations, are equipped with an SMNP agent software module. MIBs store data about the device operation and are meant to be available to authenticated remote users. The SNMP agent is responsible for providing access to the local MIB of objects that reflects resources and activity. </p>
+          <p></p>
+          <p>SNMP defines how management information is exchanged between network management applications and management agents. SNMP uses UDP, port number 162, to retrieve and send management information.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

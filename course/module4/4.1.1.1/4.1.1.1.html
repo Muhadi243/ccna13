@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.1.1.1 Introducing Frame Relay</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.1.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Introduction to Frame Relay</h1>
+        <h2>Benefits of Frame Relay</h2>
+      </div>
+      <div id="content">
+          <p>Leased lines provide permanent dedicated capacity and are used extensively for building WANs. They have been the traditional connection of choice, but have a number of disadvantages. One disadvantage is that customers pay for leased lines with a fixed capacity. However, WAN traffic is often variable and leaves some of the capacity unused. In addition, each endpoint needs a separate physical interface on the router, which increases equipment costs. Any change to the leased line generally requires a site visit by the carrier personnel.</p>
+          <p></p>
+          <p>Frame Relay is a high-performance WAN protocol that operates at the physical and data link layers of the OSI reference model. Unlike leased lines, Frame Relay requires only a single access circuit to the Frame Relay provider to communicate with other sites connected to the same provider. The capacity between any two sites can vary.</p>
+          <p></p>
+          <p>Eric Scace, an engineer at Sprint International, invented Frame Relay as a simpler version of the X.25 protocol to use across Integrated Services Digital Network (ISDN) interfaces. Today, it is also used over a variety of other network interfaces. When Sprint first implemented Frame Relay in its public network, they used StrataCom switches. Cisco’s acquisition of StrataCom in 1996 marked their entry into the carrier market. </p>
+          <p></p>
+          <p>Network providers implement Frame Relay to support voice and data traffic between LANs over a WAN. Each end user gets a private line, or leased line, to a Frame Relay node. The Frame Relay network handles the transmission over a frequently changing path transparent to all end users. As shown in the figure, Frame Relay provides a solution to allow the communications between multiple sites using a single access circuit to the provider.</p>
+          <p></p>
+          <p>Historically, Frame Relay was used extensively as a WAN protocol because it was inexpensive compared to dedicated leased lines. In addition, configuring user equipment in a Frame Relay network is very simple. Frame Relay connections are created by configuring customer premise equipment (CPE) routers or other devices to communicate with a service provider Frame Relay switch. The service provider configures the Frame Relay switch, which helps keep end-user configuration tasks to a minimum. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

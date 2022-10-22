@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1.1.2.2 The Access Layer</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_1.1.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Hierarchical Network Design Overview</h1>
+        <h2>Hierarchical Network Design</h2>
+      </div>
+      <div id="content">
+          <p>In a LAN environment, the access layer grants end devices access to the network. In the WAN environment, it may provide teleworkers or remote sites access to the corporate network across WAN connections.</p>
+          <p></p>
+          <p>As shown in the figure, the access layer for a small business network generally incorporates Layer 2 switches and access points providing connectivity between workstations and servers. </p>
+          <p></p>
+          <p>The access layer serves a number of functions including:</p>
+          <p>
+            <ul>
+              <li>Layer 2 switching</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>High availability</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Port security</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>QoS classification and marking and trust boundaries</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Address Resolution Protocol (ARP) inspection</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Virtual Access Control Lists (VACLs)</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Spanning tree</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Power over Ethernet (PoE) and auxiliary VLANs for VoIP</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1.2.2.4 Service Provider Edge </title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_1.2.2.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Cisco Enterprise Architecture</h1>
+        <h2>Cisco Enterprise Architecture Model</h2>
+      </div>
+      <div id="content">
+          <p>Enterprises use Service Providers (SPs) to link to other sites. As shown in Figure 1, the SP edge module can include:</p>
+          <p>
+            <ul>
+              <li>Internet Service Providers (ISPs)</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>WAN services such as Frame Relay, ATM, and MAN</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Public Switched Telephone Network (PSTN)  services</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>The SP edge provides connectivity between the enterprise campus module to the remote enterprise data center, enterprise branch, and enterprise teleworker modules.</p>
+          <p></p>
+          <p>The SP edge module:</p>
+          <p>
+            <ul>
+              <li>Spans across large geographic areas in a cost effective manner</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Converges voice, video, and data services over a single IP communications network</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Supports QoS and service level agreements</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Supports security using VPNs (IPsec / MPLS) over Layer 2 and Layer 3 WANs</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Click the Service Provider Edge in Figure 1 for more information. </p>
+          <p></p>
+          <p>When acquiring Internet services from an ISP, redundancy or failover should be considered. As shown in Figure 2, redundant connections to a single ISP can include:  </p>
+          <p>
+            <ul>
+              <li>
+                <b>Single-homed </b>- A single connection to an ISP</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Dual-homed </b>- Two or more connections to a single ISP</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Alternatively, it is possible to set up redundancy using multiple ISPs, as shown in Figure 3. Options for connecting to multiple ISPs include:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Multihomed - </b>Connections to two or more ISPs</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Dual-multihomed </b>- Multiple connections to two or more ISPs</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>6.3.1.1 PPPoE Motivation</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_6.3.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Configuring xDSL Connectivity</h1>
+        <h2>PPPoE Overview</h2>
+      </div>
+      <div id="content">
+          <p>In addition to understanding the various technologies available for broadband Internet access, it is also important to understand the underlying data link layer protocol used by the ISP to form a connection. </p>
+          <p></p>
+          <p>A commonly used data link layer protocol by ISPs is the Point-to-Point Protocol (PPP). PPP can be used on all serial links including those links created with dial-up analog and ISDN modems. To this day, the link from a dialup user to an ISP, using analog modems, likely uses PPP. Figure 1 shows a basic representation of that analog dial connection with PPP. </p>
+          <p></p>
+          <p>Additionally, ISPs often use PPP as the data link protocol over broadband connections. There are several reasons for this. First, PPP supports the ability to assign IP addresses to remote ends of a PPP link. With PPP enabled, ISPs can use PPP to assign each customer one public IPv4 address. More importantly, PPP supports CHAP authentication. ISPs often want to use CHAP to authenticate customers because during authentication, ISPs can check accounting records to determine whether the customer’s bill is paid, prior to letting the customer connect to the Internet.</p>
+          <p></p>
+          <p>These technologies came to market in the following order, with varying support for PPP:</p>
+          <p></p>
+          <p>1. Analog modems for dialup that could use PPP and CHAP</p>
+          <p>2. ISDN for dialup that could use PPP and CHAP</p>
+          <p>3. DSL, which did not create a point-to-point link and could not support PPP and CHAP</p>
+          <p></p>
+          <p>ISPs value PPP because of the authentication, accounting, and link management features.  Customers appreciate the ease and availability of the Ethernet connection. However, Ethernet links do not natively support PPP.  A solution to this problem was created, PPP over Ethernet (PPPoE). As shown in Figure 2, PPPoE allows the sending of PPP frames encapsulated inside Ethernet frames. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>9.2.3.3 Step 1 - Verify the Physical Layer</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_9.2.3.3_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Network Troubleshooting</h1>
+        <h2>Troubleshooting IP Connectivity</h2>
+      </div>
+      <div id="content">
+          <p>All network devices are specialized computer systems. At a minimum, these devices consist of a CPU, RAM, and storage space, allowing the device to boot and run the operating system and interfaces. This allows for the reception and transmission of network traffic. When a network administrator determines that a problem exists on a given device, and that problem might be hardware-related, it is worthwhile to verify the operation of these generic components. The most commonly used Cisco IOS commands for this purpose are<span class="cmd"><b> show processes cpu</b></span>,<span class="cmd"><b> show memory</b></span>, and<span class="cmd"><b> show interfaces</b></span>. This topic discusses the<span class="cmd"><b> show interfaces </b></span>command.</p>
+          <p></p>
+          <p>When troubleshooting performance-related issues and hardware is suspected to be at fault, the<span class="cmd"><b> show interfaces </b></span>command can be used to verify the interfaces through which the traffic passes. </p>
+          <p></p>
+          <p>The output of the<span class="cmd"><b> show interfaces </b></span>command in the figure lists a number of important statistics that can be checked:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Input queue drops </b>- Input queue drops (and the related ignored and throttle counters) signify that at some point, more traffic was delivered to the router than it could process. This does not necessarily indicate a problem. That could be normal during traffic peaks. However, it could be an indication that the CPU cannot process packets in time, so if this number is consistently high, it is worth trying to spot at which moments these counters are increasing and how this relates to CPU usage.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Output queue drops </b>- Output queue drops indicate that packets were dropped due to congestion on the interface. Seeing output drops is normal for any point where the aggregate input traffic is higher than the output traffic. During traffic peaks, packets are dropped if traffic is delivered to the interface faster than it can be sent out. However, even if this is considered normal behavior, it leads to packet drops and queuing delays, so applications that are sensitive to those, such as VoIP, might suffer from performance issues. Consistently seeing output drops can be an indicator that you need to implement an advanced queuing mechanism to provide good QoS to each application. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Input errors </b>- Input errors indicate errors that are experienced during the reception of the frame, such as CRC errors. High numbers of CRC errors could indicate cabling problems, interface hardware problems, or, in an Ethernet-based network, duplex mismatches.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Output errors </b>- Output errors indicate errors, such as collisions, during the transmission of a frame. In most Ethernet-based networks today, full-duplex transmission is the norm, and half-duplex transmission is the exception. In full-duplex transmission, operation collisions cannot occur; therefore, collisions and especially late collisions often indicate duplex mismatches.</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

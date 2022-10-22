@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.1.1.5 Statistical Time-Division Multiplexing</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.1.1.5_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Serial Point-to-Point Overview</h1>
+        <h2>Serial Communications</h2>
+      </div>
+      <div id="content">
+          <p>In another analogy, compare TDM to a train with 32 railroad cars. Each car is owned by a different freight company, and every day the train leaves with the 32 cars attached. If one of the companies has cargo to send, the car is loaded. If the company has nothing to send, the car remains empty, but stays on the train. Shipping empty containers is not very efficient. TDM shares this inefficiency when traffic is intermittent, because the time slot is still allocated even when the channel has no data to transmit. </p>
+          <p></p>
+          <p>
+            <b>STDM</b>
+          </p>
+          <p></p>
+          <p>STDM was developed to overcome this inefficiency. STDM uses a variable time slot length allowing channels to compete for any free slot space. It employs a buffer memory that temporarily stores the data during periods of peak traffic. STDM does not waste high-speed line time with inactive channels using this scheme. STDM requires each transmission to carry identification information or a channel identifier.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

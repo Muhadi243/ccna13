@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>8.1.2.4 Verifying Syslog</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_8.1.2.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Syslog</h1>
+        <h2>Configuring Syslog</h2>
+      </div>
+      <div id="content">
+          <p>You can use the<span class="cmd"><b> show logging </b></span>command to view any messages that are logged. When the logging buffer is large, it is helpful to use the pipe option (<span class="cmd">|</span>) with the<span class="cmd"><b> show logging </b></span>command. The pipe option allows the administrator to specifically state which messages should be displayed.</p>
+          <p></p>
+          <p>For example, issuing the<span class="cmd"><b> show logging </b></span><span class="cmd">|</span><span class="cmd"><b> include changed state to up </b></span>command, as shown in Figure 1, ensures that only interface notifications stating that the interface has “changed to state up”, will be displayed. </p>
+          <p></p>
+          <p>Also shown in Figure 1, issuing the<span class="cmd"><b> show logging </b></span><span class="cmd">|</span><span class="cmd"><b> begin June 12 22:35 </b></span>command displays the contents of the logging buffer that occurred on or after June 12.</p>
+          <p></p>
+          <p>Use the Syntax Checker in Figure 2 to configure and verify the syslog on R1.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

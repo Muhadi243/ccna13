@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>9.2.3.15 Packet Tracer - Troubleshooting Challenge - Using Documentation to Solve Issues</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_9.2.3.15_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Network Troubleshooting</h1>
+        <h2>Troubleshooting IP Connectivity</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Background/Scenario</b>
+          </p>
+          <p></p>
+          <p>This is Part II of a two-part activity. Part I is Packet Tracer - Troubleshooting Challenge - Documenting the Network, which you should have completed earlier in the chapter. In Part II, you will use your troubleshooting skills and documentation from Part I to solve connectivity issues between PCs.</p>
+          <p></p>
+          <p>
+            <a href="../../files/9.2.3.15%20Packet%20Tracer%20-%20Troubleshooting%20Challenge%20-%20Using%20Documentation%20to%20Solve%20Issues.pdf" target="_blank">Packet Tracer - Troubleshooting Challenge - Using Documentation to Solve Issues Instructions</a>
+          </p>
+          <p></p>
+          <p>
+            <a href="../../files/9.2.3.15%20Packet%20Tracer%20-%20Troubleshooting%20Challenge%20-%20Using%20Documentation%20to%20Solve%20Issues.pka" target="_blank">Packet Tracer - Troubleshooting Challenge - Using Documentation to Solve Issues - PKA</a>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.1.2.2 Remote-access VPNs</title>
+    <!--  -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.1.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>VPNs</h1>
+        <h2>Types of VPNs</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Remote-access VPNs</b>
+          </p>
+          <p>Where a site-to-site VPN is used to connect entire networks, a remote-access VPN supports the needs of telecommuters, mobile users, and extranet, consumer-to-business traffic. A remote-access VPN is created when VPN information is not statically set up, but instead allows for dynamically changing information, and can be enabled and disabled. Remote-access VPNs support a client/server architecture, where the VPN client (remote host) gains secure access to the enterprise network via a VPN server device at the network edge.</p>
+          <p></p>
+          <p>Remote-access VPNs are used to connect individual hosts that must access their company network securely over the Internet. Internet connectivity used by telecommuters is typically a broadband, DSL, wireless, or cable connection, as indicated in the figure. </p>
+          <p></p>
+          <p>VPN client software may need to be installed on the mobile user’s end device; for example, each host may have Cisco AnyConnect Secure Mobility Client software installed. When the host tries to send any traffic, the Cisco AnyConnect VPN Client software encapsulates and encrypts this traffic. The encrypted data is then sent over the Internet to the VPN gateway at the edge of the target network. Upon receipt, the VPN gateway behaves as it does for site-to-site VPNs.</p>
+          <p></p>
+          <p>
+            <b>Note</b>: The Cisco AnyConnect Secure Mobility Client software builds on prior Cisco AnyConnect VPN Client and Cisco VPN Client offerings to improve the always-on VPN experience across more laptop and smart phone-based mobile devices. This client supports IPv6.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

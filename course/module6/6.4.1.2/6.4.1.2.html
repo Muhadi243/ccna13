@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>6.4.1.2 Summary</title>
+    <!--  -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_6.4.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Summary</h1>
+        <h2>Summary</h2>
+      </div>
+      <div id="content">
+          <p>Broadband transmission is provided by a wide range of technologies, including digital subscriber line (DSL), fiber-to-the-home, coaxial cable systems, wireless, and satellite. This transmission requires additional components at the home end and at the corporate end.</p>
+          <p>DOCSIS is a CableLabs standard that permits the addition of high-speed data transfer to an existing CATV system. The bandwidth for Internet service over a CATV line can be up to 160 Mb/s downstream with the latest iteration of DOCSIS, and up to 120 Mb/s upstream, simultaneously. It requires the use of a Cable Modem Termination System (CMTS) at the head-end of the cable operator, and a Cable Modem (CM) on the subscriber end</p>
+          <p>The two basic types of DSL technologies are ADSL and Symmetric (SDSL). ADSL provides higher downstream bandwidth to the user than upload bandwidth. SDSL provides the same capacity in both directions. DSL can provide bandwidth exceeding 40 Mbps. DSL requires the use of a DSLAM at the carrier CO and a transceiver, often built into a home router, at the customer end. </p>
+          <p>Broadband wireless solutions include municipal Wi-Fi, WiMAX, cellular/mobile, and satellite Internet. Municipal Wi-Fi mesh networks are not widely deployed. The WiMAX bit rate is limited to 2 Mbps per subscriber. Cellular/mobile coverage can be limited and bandwidth can be an issue. Satellite Internet is relatively expensive and limited, but it may be the only method to provide access.</p>
+          <p>If multiple broadband connections are available to a particular location, a cost-benefit analysis should be performed to determine the best solution. The best solution may be to connect to multiple service providers to provide redundancy and reliability.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

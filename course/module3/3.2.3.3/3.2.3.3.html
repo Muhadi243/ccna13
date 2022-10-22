@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.2.3.3 LCP Packet</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.2.3.3_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>PPP Operation</h1>
+        <h2>PPP Sessions</h2>
+      </div>
+      <div id="content">
+          <p>Figure 1 shows the fields in an LCP packet: </p>
+          <p>
+            <ul>
+              <li>
+                <b>Code </b>- The code field is 1 byte in length and identifies the type of LCP packet.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Identifier </b>- The identifier field is 1 byte in length and is used to match packet requests and replies.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Length </b>- The length field is 2 bytes in length and indicates the total length (including all fields) of the LCP packet.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Data </b>- The data field is 0 or more bytes as indicated by the length field. The format of this field is determined by the code.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Each LCP packet is a single LCP message consisting of an LCP code field identifying the type of LCP packet, an identifier field so that requests and replies can be matched, and a length field indicating the size of the LCP packet and LCP packet type-specific data.</p>
+          <p></p>
+          <p></p>
+          <p>Each LCP packet has a specific function in the exchange of configuration information depending on its packet type. The code field of the LCP packet identifies the packet type according to Figure 2.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

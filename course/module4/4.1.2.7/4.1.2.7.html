@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.1.2.7 Local Management Interface (LMI)</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.1.2.7_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Introduction to Frame Relay</h1>
+        <h2>Frame Relay Operation</h2>
+      </div>
+      <div id="content">
+          <p>Another important concept in Frame Relay is the Local Management Interface (LMI). The Frame Relay design provides packet-switched data transfer with minimum end-to-end delays. The original design omits anything that might contribute to delay. </p>
+          <p></p>
+          <p>When vendors implemented Frame Relay as a separate technology rather than as one component of ISDN, they decided that there was a need for DTEs to dynamically acquire information about the status of the network. However, the original design did not include this feature. A consortium of Cisco, Digital Equipment Corporation (DEC), Northern Telecom, and StrataCom extended the Frame Relay protocol to provide additional capabilities for complex internetworking environments. These extensions are referred to collectively as the LMI. </p>
+          <p></p>
+          <p>Refer to the Frame Relay topology in Figure 1. Basically, the LMI is a keepalive mechanism that provides status information about Frame Relay connections between the router (DTE) and the Frame Relay switch (DCE). Every 10 seconds or so, the end device polls the network, either requesting a dumb sequenced response or channel status information. If the network does not respond with the requested information, the user device may consider the connection to be down. When the network responds with a FULL STATUS response, it includes status information about DLCIs that are allocated to that line. The end device can use this information to determine whether the logical connections are able to pass data.</p>
+          <p></p>
+          <p>Figure 2 shows the output of the<span class="cmd"><b> show frame-relay lmi </b></span>command. The output shows the LMI type used by the Frame Relay interface and the counters for the LMI status exchange sequence, including errors such as LMI timeouts.</p>
+          <p></p>
+          <p>It is easy to confuse the LMI and encapsulation. The LMI is a definition of the messages used between the DTE (R1) and the DCE (the Frame Relay switch owned by the service provider). Encapsulation defines the headers used by a DTE to communicate information to the DTE at the other end of a VC. The switch and its connected router care about using the same LMI. The switch does not care about the encapsulation. The endpoint routers (DTEs) do care about the encapsulation.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

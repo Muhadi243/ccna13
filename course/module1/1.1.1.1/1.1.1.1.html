@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1.1.1.1 Network Requirements</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_1.1.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Hierarchical Network Design Overview</h1>
+        <h2>Enterprise Network Campus Design</h2>
+      </div>
+      <div id="content">
+          <p>When discussing network design, it is useful to categorize networks based on the number of devices serviced:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Small network </b>- Provides services for up to 200 devices.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Medium-sized network </b>- Provides services for 200 to 1000 devices.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Large network </b>- Provides services for 1000+ devices. </li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Network designs vary depending on the size and requirements of the organizations. For example, the networking infrastructure needs of a small organization with fewer devices will be less complex than the infrastructure of a large organization with a significant number of devices and connections. </p>
+          <p></p>
+          <p>There are many variables to consider when designing a network. For instance, consider the example in the figure. The sample high-level topology diagram is for a large enterprise network that consists of a main campus site connecting small, medium, and large sites. </p>
+          <p></p>
+          <p>Network design is an expanding area and requires a great deal of knowledge and experience. The intent of this section is to introduce commonly accepted network design concepts.</p>
+          <p></p>
+          <p>
+            <b>Note</b>: The Cisco Certified Design Associate (CCDA®) is an industry-recognized certification for network design engineers, technicians, and support engineers, who demonstrate the skills required to design basic campus, data center, security, voice, and wireless networks.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.5.1.3 Summary</title>
+    <!--  -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.5.1.3_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Summary</h1>
+        <h2>Summary</h2>
+      </div>
+      <div id="content">
+          <p>VPNs are used to create a secure end-to-end private network connection over a third party network, such as the Internet. A site-to-site VPN uses a VPN gateway device at the edge of both sites. The end hosts are unaware of the VPN and have no additional supporting software.</p>
+          <p></p>
+          <p>A remote-access VPN requires software to be installed on the individual host device that accesses the network from a remote location. The two types of remote-access VPNs are SSL and IPsec. SSL technology can provide remote access using a client’s web browser and the browser’s native SSL encryption. Using Cisco AnyConnect software on the client, users can have LAN-like, full network access using SSL.</p>
+          <p>GRE is a basic, non-secure site-to-site VPN tunneling protocol that can encapsulate a wide variety of protocol packet types inside IP tunnels, thus allowing an organization to deliver other protocols through an IP-based WAN. Today it is primarily used to deliver IP multicast traffic or IPv6 traffic over an IPv4 unicast-only connection.</p>
+          <p>IPsec, an IETF standard, is a secure tunnel operating at Layer 3 of the OSI model that can protect and authenticate IP packets between IPsec peers. It can provide confidentiality by using encryption, data integrity, authentication, and anti-replay protection. Data integrity is provided by using a hash algorithm, such as MD5 or SHA. Authentication is provided by the PSK or RSA peer authentication method.</p>
+          <p>The level of confidentiality provided by encryption depends on the algorithm used and the key length. Encryption can be symmetrical or asymmetrical. DH is a method used to securely exchange the keys to encrypt data.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

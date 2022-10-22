@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.2.3.5 NCP Explained</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.2.3.5_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>PPP Operation</h1>
+        <h2>PPP Sessions</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>NCP Process</b>
+          </p>
+          <p></p>
+          <p>After the link has been initiated, the LCP passes control to the appropriate NCP. </p>
+          <p></p>
+          <p>Although initially designed for IP packets, PPP can carry data from multiple network layer protocols by using a modular approach in its implementation. PPP’s modular model allows LCP to set up the link and then transfer the details of a network protocol to a specific NCP. Each network protocol has a corresponding NCP and each NCP has a corresponding RFC. </p>
+          <p></p>
+          <p>There are NCPs for IPv4, IPv6, IPX, AppleTalk, and many others. NCPs use the same packet format as the LCPs.</p>
+          <p></p>
+          <p>After the LCP has configured and authenticated the basic link, the appropriate NCP is invoked to complete the specific configuration of the network layer protocol being used. When the NCP has successfully configured the network layer protocol, the network protocol is in the open state on the established LCP link. At this point, PPP can carry the corresponding network layer protocol packets. </p>
+          <p></p>
+          <p>
+            <b>IPCP Example</b>
+          </p>
+          <p></p>
+          <p>As an example of how the NCP layer works, the NCP configuration of IPv4, which is the most common Layer 3 protocol, is shown in the figure. After LCP has established the link, the routers exchange IPCP messages, negotiating options specific to the IPv4 protocol. IPCP is responsible for configuring, enabling, and disabling the IPv4 modules on both ends of the link. IPV6CP is an NCP with the same responsibilities for IPv6.</p>
+          <p></p>
+          <p>IPCP negotiates two options:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>
+                <b>Compression</b> - Allows devices to negotiate an algorithm to compress TCP and IP headers and save bandwidth. The Van Jacobson TCP/IP header compression reduces the size of the TCP/IP headers to as few as 3 bytes. This can be a significant improvement on slow serial lines, particularly for interactive traffic. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>IPv4-Address</b> - Allows the initiating device to specify an IPv4 address to use for routing IP over the PPP link, or to request an IPv4 address for the responder. Prior to the advent of broadband technologies such as DSL and cable modem services, dialup network links commonly used the IPv4 address option.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>After the NCP process is complete, the link goes into the open state and LCP takes over again in a link maintenance phase. Link traffic consists of any possible combination of LCP, NCP, and network layer protocol packets. When data transfer is complete, NCP terminates the protocol link; LCP terminates the PPP connection.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

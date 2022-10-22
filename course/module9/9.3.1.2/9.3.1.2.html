@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>9.3.1.2 Summary</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_9.3.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Summary</h1>
+        <h2>Summary</h2>
+      </div>
+      <div id="content">
+          <p>For network administrators to be able to monitor and troubleshoot a network, they must have a complete set of accurate and current network documentation, including configuration files, physical and logical topology diagrams, and a baseline performance level.</p>
+          <p>The three major stages to troubleshooting problems are gather symptoms, isolate the problem, then correct the problem. It is sometimes necessary to temporarily implement a workaround to the problem. If the intended corrective action does not fix the problem, the change should be removed. In all process steps, the network administrator should document the process. A troubleshooting policy, including change control procedures, should be established for each stage. After the problem is resolved, it is important to communicate this to the users, anyone involved in the troubleshooting process, and to other IT team members.</p>
+          <p>The OSI model or the TCP/IP model can be applied to a network problem. A network administrator can use the bottom-up method, the top-down method, or the divide-and-conquer method. Less structured methods include shoot-from-the-hip, spot-the-differences, and move-the-problem.</p>
+          <p>Common software tools that can help with troubleshooting include network management system tools, knowledge bases, baselining tools, host-based protocol analyzers, and Cisco IOS EPC. Hardware troubleshooting tools include a NAM, digital multimeters, cable testers, cable analyzers, and portable network analyzers. Cisco IOS log information can also be used to identify potential problems.<b></b></p>
+          <p>There are characteristic physical layer, data link layer, network layer, transport layer, and application layer symptoms and problems of which the network administrator should be aware. The administrator may need to pay particular attention to physical connectivity, default gateways, MAC address tables, NAT, and routing information.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

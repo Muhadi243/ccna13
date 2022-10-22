@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.1.1.4 Cost Effectiveness and Flexibility of Frame Relay</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.1.1.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Introduction to Frame Relay</h1>
+        <h2>Benefits of Frame Relay</h2>
+      </div>
+      <div id="content">
+          <p>SPAN’s Frame Relay network uses Permanent Virtual Circuits (PVCs), as shown in the figure. A PVC is the logical path along an originating Frame Relay link, through the network, and along a terminating Frame Relay link to its ultimate destination. Compare this to the physical path used by a dedicated connection. In a network with Frame Relay access, a PVC uniquely defines the path between two endpoints. The concept of virtual circuits (VCs) is discussed in more detail later in this section.</p>
+          <p></p>
+          <p>SPAN’s Frame Relay solution provides both cost effectiveness and flexibility.</p>
+          <p></p>
+          <p>
+            <b>Cost Effectiveness of Frame Relay</b>
+          </p>
+          <p></p>
+          <p>Frame Relay is a more cost-effective option for two reasons. First, with dedicated lines, customers pay for an end-to-end connection, which includes the local loop and the network link. With Frame Relay, customers only pay for the local loop, and for the bandwidth they purchase from the network provider. Distance between nodes is not important. While in a dedicated-line model, customers use dedicated lines provided in increments of 64 kb/s, and Frame Relay customers can define their virtual circuit needs in far greater granularity, often in increments as small as 4 kb/s.</p>
+          <p></p>
+          <p>The second reason for Frame Relay’s cost effectiveness is that it shares bandwidth across a larger base of customers. Typically, a network provider can service 40 or more 56 kb/s customers over one T1 circuit. Using dedicated lines would require more CSU/DSUs (one for each line) and more complicated routing and switching. Network providers save because there is less equipment to purchase and maintain.</p>
+          <p></p>
+          <p>
+            <b>Note</b>: Cost can vary significantly depending on location. </p>
+          <p></p>
+          <p>
+            <b>The Flexibility of Frame Relay</b>
+          </p>
+          <p></p>
+          <p>A virtual circuit provides considerable flexibility in network design. Examining the figure, you can see that SPAN’s offices all connect to the Frame Relay cloud over their respective local loops. What happens in the cloud is really of no concern at this time. All that matters is that when any SPAN office wants to communicate with any other SPAN office, all it needs to do is connect to a virtual circuit leading to the other office. In Frame Relay, the end of each connection has a number to identify it called a data link connection identifier (DLCI). Any station can connect with any other simply by stating the address of that station and DLCI number of the line it must use. In a later section, you will learn that when Frame Relay is configured, all data from all configured DLCIs flows through the same port of the router. Imagine the same flexibility using dedicated lines. Not only is it complicated, but it also requires considerably more equipment. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>6.2.2.2 DSL Connections</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_6.2.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Comparing Broadband Solutions</h1>
+        <h2>DSL</h2>
+      </div>
+      <div id="content">
+          <p>Service providers deploy DSL connections in the last step of a local telephone network, called the local loop or last mile. The connection is set up between a pair of modems on either end of a copper wire that extends between the customer premises equipment (CPE) and the DSL access multiplexer (DSLAM). A DSLAM is the device located at the Central Office (CO) of the provider and concentrates connections from multiple DSL subscribers. A DSLAM is often built into an aggregation router.</p>
+          <p></p>
+          <p>Figure 1 shows the equipment needed to provide a DSL connection to a SOHO. The two components are the DSL transceiver and the DSLAM:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>
+                <b>Transceiver </b>- Connects the computer of the teleworker to the DSL. Usually the transceiver is a DSL modem connected to the computer using a USB or Ethernet cable. Newer DSL transceivers can be built into small routers with multiple 10/100 switch ports suitable for home office use. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>DSLAM </b>- Located at the CO of the carrier, the DSLAM combines individual DSL connections from users into one high-capacity link to an ISP, and therefore, to the Internet.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Figure 2 depicts modern DSL routers and broadband aggregation routers. The advantage that DSL has over cable technology is that DSL is not a shared medium. Each user has a separate direct connection to the DSLAM. Adding users does not impede performance, unless the DSLAM Internet connection to the ISP, or the Internet, becomes saturated.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

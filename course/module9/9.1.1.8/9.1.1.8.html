@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>9.1.1.8 Packet Tracer - Troubleshooting Challenge - Documenting the Network</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_9.1.1.8_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Troubleshooting with a Systematic Approach</h1>
+        <h2>Network Documentation</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Background/Scenario</b>
+          </p>
+          <p></p>
+          <p>This activity covers the steps to take to discover a network using primarily the<span class="cmd"><b> telnet</b></span>,<span class="cmd"><b> show cdp neighbors detail</b></span>, and<span class="cmd"><b> show ip route </b></span>commands. This is Part I of a two-part activity. Part II is Packet Tracer - Troubleshooting Challenge - Using Documentation to Solve Issues, which comes later in the chapter.</p>
+          <p></p>
+          <p>The topology you see when you open the Packet Tracer activity does not reveal all of the details of the network. The details have been hidden using the cluster function of Packet Tracer. The network infrastructure has been collapsed, and the topology in the file shows only the end devices. Your task is to use your knowledge of networking and discovery commands to learn about the full network topology and document it.</p>
+          <p></p>
+          <p>
+            <a href="../../files/9.1.1.8%20Packet%20Tracer%20-%20Troubleshooting%20Challenge%20-%20Documenting%20The%20Network%20Instructions.pdf" target="_blank">Packet Tracer - Troubleshooting Challenge - Documenting the Network Instructions</a>
+          </p>
+          <p></p>
+          <p>
+            <a href="../../files/9.1.1.8%20Packet%20Tracer%20-%20Troubleshooting%20Challenge%20-%20Documenting%20The%20Network.pka" target="_blank">Packet Tracer - Troubleshooting Challenge - Documenting the Network - PKA</a>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>2.1.2.2 Common WAN Terminology</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_2.1.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>WAN Technologies Overview</h1>
+        <h2>WAN Operations</h2>
+      </div>
+      <div id="content">
+          <p>One primary difference between a WAN and a LAN is that a company or organization must subscribe to an outside WAN service provider to use WAN carrier network services. A WAN uses data links provided by carrier services to access the Internet and connect different locations of an organization to each other, to locations of other organizations, to external services, and to remote users. </p>
+          <p></p>
+          <p>The physical layer of a WAN describes the physical connections between the company network and the service provider network. The figure illustrates the terminology commonly used to describe WAN connections, including:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Customer Premises Equipment (CPE) </b>- The devices and inside wiring located on the enterprise edge connecting to a carrier link. The subscriber either owns the CPE or leases the CPE from the service provider. A subscriber, in this context, is a company that arranges for WAN services from a service provider. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Data Communications Equipment (DCE) </b>- Also called data circuit-terminating equipment, the DCE consists of devices that put data on the local loop. The DCE primarily provides an interface to connect subscribers to a communication link on the WAN cloud. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Data Terminal Equipment (DTE) </b>- The customer devices that pass the data from a customer network or host computer for transmission over the WAN. The DTE connects to the local loop through the DCE.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Demarcation Point </b>- A point established in a building or complex to separate customer equipment from service provider equipment. Physically, the demarcation point is the cabling junction box, located on the customer premises, that connects the CPE wiring to the local loop. It is usually placed for easy access by a technician. The demarcation point is the place where the responsibility for the connection changes from the user to the service provider. When problems arise, it is necessary to determine whether the user or the service provider is responsible for troubleshooting or repair.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Local Loop </b>- The actual copper or fiber cable that connects the CPE to the CO of the service provider. The local loop is also sometimes called the “last-mile”. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Central Office (CO) </b>- The CO is the local service provider facility or building that connects the CPE to the provider network. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Toll network</b> - This consists of the long-haul, all-digital, fiber-optic communications lines, switches, routers, and other equipment inside the WAN provider network. </li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

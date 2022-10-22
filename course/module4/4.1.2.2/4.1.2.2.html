@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.1.2.2 Multiple Virtual Circuits</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.1.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Introduction to Frame Relay</h1>
+        <h2>Frame Relay Operation</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Multiple VCs</b>
+          </p>
+          <p></p>
+          <p>Frame Relay is statistically multiplexed, meaning that it transmits only one frame at a time, but that many logical connections can co-exist on a single physical line. The Frame Relay Access Device (FRAD), or router connected to the Frame Relay network, may have multiple VCs connecting it to various endpoints. Multiple VCs on a single physical line are distinguished because each VC has its own DLCI. Keep in mind that the DLCI has only local significance and may be different at each end of a VC.</p>
+          <p></p>
+          <p>Figure 1 shows an example of two VCs on a single access line, each with its own DLCI, attaching to a router (R1). </p>
+          <p></p>
+          <p>This capability often reduces the equipment and network complexity required to connect multiple devices, making it a very cost-effective replacement for a mesh of access lines. With this configuration, each endpoint needs only a single access line and interface. More savings arise as the capacity of the access line is based on the average bandwidth requirement of the VCs, rather than on the maximum bandwidth requirement. </p>
+          <p></p>
+          <p>In the example in Figure 2, SPAN Engineering Co. has five remote locations, with its headquarters in Chicago. Chicago is connected to the network using five VCs and each VC is given a DLCI. To see Chicago’s respective DLCI mappings, click on the location in the table. Notice that SPAN has grown and recently opened an office in San Jose. Using Frame Relay made this expansion relatively easy.</p>
+          <p></p>
+          <p>
+            <b>Cost Benefits of Multiple VCs</b>
+          </p>
+          <p></p>
+          <p>With Frame Relay, customers pay for the bandwidth they use. In effect, they pay for a Frame Relay port. When the customer increases the number of ports, as described above, they pay for more bandwidth, but they do not pay for more equipment because the ports are virtual. There is no change to the physical infrastructure. Compare this to purchasing more bandwidth using dedicated lines.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

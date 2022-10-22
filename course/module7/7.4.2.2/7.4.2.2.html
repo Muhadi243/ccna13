@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.4.2.2 Cisco Easy VPN Server and Remote</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.4.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Remote Access</h1>
+        <h2>IPsec Remote-access VPNs</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Cisco Easy VPN Server</b>
+          </p>
+          <p></p>
+          <p>The Cisco Easy VPN Server makes it possible for mobile and remote workers using VPN Client software on their PCs to create secure IPsec tunnels to access their headquarters' intranet where critical data and applications exist. It enables Cisco IOS routers and Cisco ASA Firewalls to act as VPN head-end devices in site-to-site or remote-access VPNs. Remote office devices use the Cisco Easy VPN Remote feature or the Cisco VPN Client application to connect to the server, which then pushes defined security policies to the remote VPN device. This ensures that those connections have up-to-date policies in place before the connection is established. </p>
+          <p></p>
+          <p>
+            <b>Cisco Easy VPN Remote</b>
+          </p>
+          <p></p>
+          <p>The Cisco Easy VPN Remote enables Cisco IOS routers or software clients to act as remote VPN clients. These devices can receive security policies from a Cisco Easy VPN Server, minimizing VPN configuration requirements at the remote location. This cost-effective solution is ideal for remote offices with little IT support or for large customer premises equipment (CPE) deployments where it is impractical to individually configure multiple remote devices.</p>
+          <p></p>
+          <p>The figure shows three network devices with Easy VPN Remote enabled, all connecting to an Easy VPN server for configuration parameters. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

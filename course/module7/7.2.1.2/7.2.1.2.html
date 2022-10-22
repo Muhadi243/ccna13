@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.2.1.2 Characteristics of GRE</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.2.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Site-to-Site GRE Tunnels</h1>
+        <h2>Fundamentals of Generic Routing Encapsulation</h2>
+      </div>
+      <div id="content">
+          <p>GRE is a tunneling protocol developed by Cisco that can encapsulate a wide variety of protocol packet types inside IP tunnels, creating a virtual point-to-point link to Cisco routers at remote points over an IP internetwork. IP tunneling using GRE enables network expansion across a single-protocol backbone environment.  It does this by connecting multiprotocol subnetworks in a single-protocol backbone environment.</p>
+          <p></p>
+          <p>GRE has these characteristics:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>GRE is defined as an IETF standard (RFC 2784).</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>In the outer IP header, 47 is used in the protocol field to indicate that a GRE header will follow.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>GRE encapsulation uses a protocol type field in the GRE header to support the encapsulation of any OSI Layer 3 protocol. Protocol Types are defined in RFC 1700 as "EtherTypes".</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>GRE itself is stateless; by default it does not include any flow-control mechanisms.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>GRE does not include any strong security mechanisms to protect its payload.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>The GRE header, together with the tunneling IP header indicated in the figure, creates at least 24 bytes of additional overhead for tunneled packets.</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

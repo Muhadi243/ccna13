@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.2.1.1 Introduction to GRE</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.2.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Site-to-Site GRE Tunnels</h1>
+        <h2>Fundamentals of Generic Routing Encapsulation</h2>
+      </div>
+      <div id="content">
+          <p>Generic Routing Encapsulation (GRE) is one example of a basic, non-secure, site-to-site VPN tunneling protocol. GRE is a tunneling protocol developed by Cisco that can encapsulate a wide variety of protocol packet types inside IP tunnels. GRE creates a virtual point-to-point link to Cisco routers at remote points, over an IP internetwork. </p>
+          <p></p>
+          <p>GRE is designed to manage the transportation of multiprotocol and IP multicast traffic between two or more sites, that may only have IP connectivity. It can encapsulate multiple protocol packet types inside an IP tunnel.</p>
+          <p></p>
+          <p>As shown in the figure, a tunnel interface supports a header for each of the following:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>An encapsulated protocol (or passenger protocol), such as IPv4, IPv6, AppleTalk, DECnet, or IPX</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>An encapsulation protocol (or carrier), such as GRE</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>A transport delivery protocol, such as IP, which is the protocol that carries the encapsulated protocol</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

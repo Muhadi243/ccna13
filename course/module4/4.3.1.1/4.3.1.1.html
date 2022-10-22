@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.3.1.1 Verifying Frame Relay Operation: Frame Relay Interface</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.3.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Troubleshoot Connectivity</h1>
+        <h2>Troubleshoot Frame Relay</h2>
+      </div>
+      <div id="content">
+          <p>Frame Relay is generally a very reliable service. Nonetheless, there are times when the network performs at less than expected levels and troubleshooting is necessary. For example, users may report slow and intermittent connections across the circuit, or circuits may go down altogether. Regardless of the reason, network outages are very expensive in terms of lost productivity. A recommended best practice is to verify the configuration before problems appear. </p>
+          <p></p>
+          <p>In this topic, you will step though a verification procedure to ensure everything is working correctly before a configuration is launched on a live network. </p>
+          <p></p>
+          <p>
+            <b>Verify Frame Relay Interfaces</b>
+          </p>
+          <p></p>
+          <p>After configuring a Frame Relay PVC and when troubleshooting an issue, verify that Frame Relay is operating correctly on that interface using the<span class="cmd"><b> show interfaces </b></span>command. </p>
+          <p></p>
+          <p>Recall that with Frame Relay, the router is normally considered a DTE device. However, for testing purposes, a Cisco router can be configured as a DCE device to simulate a Frame Relay switch. In such cases, the router becomes a DCE device when it is configured as a Frame Relay switch.</p>
+          <p></p>
+          <p>As shown in the figure, the<span class="cmd"><b> show interfaces </b></span>command displays how the encapsulation is set up, along with useful Layer 1 and Layer 2 status information, including:</p>
+          <p>
+            <ul>
+              <li>LMI DLCI </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>LMI type </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Frame Relay DTE/DCE type </li>
+            </ul>
+          </p>
+          <p></p>
+          <p>The first step is always to confirm that the interfaces are properly configured. In the figure, among other things, you can see details about the encapsulation, the DLCI on the Frame Relay-configured serial interface, and the DLCI used for the LMI. Confirm that these values are the expected values; if not, changes may be required.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

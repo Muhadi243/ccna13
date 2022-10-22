@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.4.2.4 Comparing IPsec and SSL</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.4.2.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Remote Access</h1>
+        <h2>IPsec Remote-access VPNs</h2>
+      </div>
+      <div id="content">
+          <p>Both IPsec and SSL VPN technologies offer access to virtually any network application or resource, as shown in the figure. SSL VPNs offer such features as easy connectivity from non-company-managed desktops, little or no desktop software maintenance, and user-customized web portals upon login. </p>
+          <p></p>
+          <p>IPsec exceeds SSL in many significant ways: </p>
+          <p></p>
+          <p>
+            <ul>
+              <li>Number of applications that are supported</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Strength of encryption</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Strength of authentication</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Overall security</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>When security is an issue, IPsec is the superior choice. If support and ease of deployment are the primary issues, consider SSL.</p>
+          <p></p>
+          <p>IPsec and SSL VPN are complementary because they solve different problems. Depending on its needs, an organization can implement one or both. This complementary approach allows a single device such as an ISR router or an ASA firewall appliance to address all remote-access user requirements. While many solutions offer either IPsec or SSL, Cisco remote-access VPN solutions offer both technologies integrated on a single platform with unified management. Offering both IPsec and SSL technologies enables organizations to customize their remote-access VPN without any additional hardware or management complexity.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.1.2.4 Configuring HDLC Encapsulation</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.1.2.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Serial Point-to-Point Overview</h1>
+        <h2>HDLC Encapsulation</h2>
+      </div>
+      <div id="content">
+          <p>Cisco HDLC is the default encapsulation method used by Cisco devices on synchronous serial lines. </p>
+          <p></p>
+          <p>Use Cisco HDLC as a point-to-point protocol on leased lines between two Cisco devices. If connecting non-Cisco devices, use synchronous PPP.</p>
+          <p></p>
+          <p>If the default encapsulation method has been changed, use the<span class="cmd"><b> encapsulation hdlc </b></span>command in privileged EXEC mode to re-enable HDLC. </p>
+          <p></p>
+          <p>As shown in the figure, there are two steps to re-enable HDLC encapsulation:</p>
+          <p></p>
+          <p>
+            <b>Step 1.</b> Enter the interface configuration mode of the serial interface.</p>
+          <p>
+            <b>Step 2.</b> Enter the<span class="cmd"><b> encapsulation hdlc </b></span>command to specify the encapsulation protocol on the interface.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

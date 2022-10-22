@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.3.1.1 IPsec</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.3.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Introducing IPsec</h1>
+        <h2>Internet Protocol Security</h2>
+      </div>
+      <div id="content">
+          <p>IPsec VPNs offer flexible and scalable connectivity. Site-to-site connections can provide a secure, fast, and reliable remote connection. With an IPsec VPN, the information from a private network is securely transported over a public network. This forms a virtual network instead of using a dedicated Layer 2 connection, as shown in the figure. To remain private, the traffic is encrypted to keep the data confidential. </p>
+          <p></p>
+          <p>IPsec is an IETF standard that defines how a VPN can be configured in a secure manner using the Internet Protocol. </p>
+          <p></p>
+          <p>IPsec is a framework of open standards that spells out the rules for secure communications. IPsec is not bound to any specific encryption, authentication, security algorithms, or keying technology. Rather, IPsec relies on existing algorithms to implement secure communications. IPsec allows newer and better algorithms to be implemented without amending the existing IPsec standards. </p>
+          <p></p>
+          <p>IPsec works at the network layer, protecting and authenticating IP packets between participating IPsec devices, also known as peers. IPsec secures a path between a pair of gateways, a pair of hosts, or a gateway and host. As a result, IPsec can protect virtually all application traffic because the protection can be implemented from Layer 4 to Layer 7.</p>
+          <p></p>
+          <p>All implementations of IPsec have a plaintext Layer 3 header, so there are no issues with routing. IPsec functions over all Layer 2 protocols, such as Ethernet, ATM, or Frame Relay.</p>
+          <p></p>
+          <p>IPsec characteristics can be summarized as follows:</p>
+          <p>
+            <ul>
+              <li>IPsec is a framework of open standards that is algorithm-independent.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>IPsec provides data confidentiality, data integrity, and origin authentication.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>IPsec acts at the network layer, protecting and authenticating IP packets.</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

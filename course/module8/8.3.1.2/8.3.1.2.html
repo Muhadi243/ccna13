@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>8.3.1.2 Understanding NetFlow</title>
+    <!--  -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_8.3.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>NetFlow</h1>
+        <h2>NetFlow Operation</h2>
+      </div>
+      <div id="content">
+          <p>There are many potential uses of the statistics that NetFlow provides; however, most organizations use NetFlow for some or all of the following important data collection purposes:</p>
+          <p>
+            <ul>
+              <li>Measuring who is using what network resources for what purpose.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Accounting and charging back according to the resource utilization level.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Using the measured information to do more effective network planning so that resource allocation and deployment is well-aligned with customer requirements.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Using the information to better structure and customize the set of available applications and services to meet user needs and customer service requirements.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>When comparing the functionality of SNMP to NetFlow, an analogy for SNMP might be remote-control software for an unmanned vehicle; whereas an analogy for NetFlow is a simple, yet detailed phone bill. Phone records provide call-by-call and aggregated statistics that enable the person paying the bill to track long calls, frequent calls, or calls that should not have been made.</p>
+          <p></p>
+          <p>In contrast to SNMP, NetFlow uses a “push-based” model. The collector simply listens for NetFlow traffic, and the networking devices are in charge of sending NetFlow data to the collector, based on changes in their flow cache. Another difference between NetFlow and SNMP is that NetFlow only gathers traffic statistics, as shown in the figure, whereas SNMP can also collect many other performance indicators, such as interface errors, CPU usage, and memory usage. On the other hand, the traffic statistics collected using NetFlow have a lot more granularity than the traffic statistics that can be collected using SNMP.</p>
+          <p></p>
+          <p>
+            <b>Note</b>: Do not confuse NetFlow’s purpose and results with that of packet capture hardware and software. Whereas packet captures record all possible information exiting or entering a network device for later analysis, NetFlow targets specific statistical information.</p>
+          <p></p>
+          <p>When Cisco sought out to create NetFlow, two key criteria provided guidance in its creation:</p>
+          <p>
+            <ul>
+              <li>NetFlow should be completely transparent to the applications and devices in the network.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>NetFlow should not have to be supported and running on all devices in the network to function.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Achieving these design criteria ensured that NetFlow is very easy to implement in the most complex modern networks.</p>
+          <p></p>
+          <p>
+            <b>Note</b>: Although NetFlow is simple to implement and transparent to the network, it does consume additional memory on the Cisco device, because NetFlow stores record information in “cache” on the device. The default size of this cache varies based on the platform, and the administrator can adjust this value.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

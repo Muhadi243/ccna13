@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>9.1.1.1 Documenting the Network</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_9.1.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Troubleshooting with a Systematic Approach</h1>
+        <h2>Network Documentation</h2>
+      </div>
+      <div id="content">
+          <p>For network administrators to be able to monitor and troubleshoot a network, they must have a complete set of accurate and current network documentation. This documentation includes:</p>
+          <p>
+            <ul>
+              <li>Configuration files, including network configuration files and end-system configuration files</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Physical and logical topology diagrams </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>A baseline performance level</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Network documentation allows network administrators to efficiently diagnose and correct network problems, based on the network design and the expected performance of the network under normal operating conditions. All network documentation information should be kept in a single location, either as hard copy, or on the network on a protected server. Backup documentation should be maintained and kept in a separate location. </p>
+          <p></p>
+          <p>
+            <b>Network Configuration Files</b>
+          </p>
+          <p>Network configuration files contain accurate, up-to-date records of the hardware and software used in a network. Within the network configuration files a table should exist for each network device used on the network, containing all relevant information about that device.  Figure 1 shows sample network configuration tables for two routers. Figure 2 is a similar table for a LAN switch.</p>
+          <p></p>
+          <p>Information that could be captured within a device table includes:</p>
+          <p>
+            <ul>
+              <li>Type of device, model designation</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>IOS image name </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Device network hostname </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Location of the device (building, floor, room, rack, panel) </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>If it is a modular device, include all module types and in which module slot they are located</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Data link layer addresses </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Network layer addresses </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Any additional important information about physical aspects of the device</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>
+            <b>End-system Configuration Files</b>
+          </p>
+          <p>End-system configuration files focus on the hardware and software used in end-system devices, such as servers, network management consoles, and user workstations. An incorrectly configured end system can have a negative impact on the overall performance of a network. For this reason, having a sample baseline record of the hardware and software used on devices, and recorded in end-system documentation as shown in Figure 3 can be very useful when troubleshooting.</p>
+          <p></p>
+          <p>For troubleshooting purposes, the following information could be documented within the end-system configuration table:</p>
+          <p>
+            <ul>
+              <li>Device name (purpose) </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Operating system and version </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>IPv4 and IPv6 addresses </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Subnet mask and prefix length</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Default gateway, DNS server, and WINS server addresses </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Any high-bandwidth network applications that the end system runs</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

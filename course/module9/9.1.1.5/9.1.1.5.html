@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>9.1.1.5 Measuring Data</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_9.1.1.5_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Troubleshooting with a Systematic Approach</h1>
+        <h2>Network Documentation</h2>
+      </div>
+      <div id="content">
+          <p>When documenting the network, it is often necessary to gather information directly from routers and switches. Obvious useful network documentation commands include<span class="cmd"><b> ping</b></span>,<span class="cmd"><b> traceroute</b></span>, and<span class="cmd"><b> telnet </b></span>as well as the following<span class="cmd"><b> show </b></span>commands: </p>
+          <p></p>
+          <p>
+            <ul>
+              <li>The<span class="cmd"><b> show ip interface brief </b></span>and<span class="cmd"><b> show ipv6 interface brief </b></span>commands are used to display the up or down status and IP address of all interfaces on a device. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>The<span class="cmd"><b> show ip route </b></span>and<span class="cmd"><b> show ipv6 route </b></span>commands are used to display the routing table in a router to learn the directly connected neighbors, more remote devices (through learned routes), and the routing protocols that have been configured. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>The<span class="cmd"><b> show cdp neighbor detail </b></span>command is used to obtain detailed information about directly connected Cisco neighbor devices.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Figure 1 lists some of the most common Cisco IOS commands used for data collection.</p>
+          <p></p>
+          <p>Manual data collection using<span class="cmd"><b> show </b></span>commands on individual network devices is extremely time consuming and is not a scalable solution. Manual collection of data should be reserved for smaller networks or limited to mission-critical network devices. For simpler network designs, baseline tasks typically use a combination of manual data collection and simple network protocol inspectors.</p>
+          <p></p>
+          <p>Sophisticated network management software is often used to baseline large and complex networks. For example, as shown in Figure 2, the Fluke Network SuperAgent module enables administrators to automatically create and review reports using its Intelligent Baselines feature. This feature compares current performance levels with historical observations and can automatically identify performance problems and applications that do not provide expected levels of service. </p>
+          <p></p>
+          <p>Establishing an initial baseline or conducting a performance-monitoring analysis may require many hours or days to accurately reflect network performance. Network management software or protocol inspectors and sniffers often run continuously over the course of the data collection process. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.4.2.3 Cisco Easy VPN Client</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.4.2.3_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Remote Access</h1>
+        <h2>IPsec Remote-access VPNs</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Cisco VPN Client</b>
+          </p>
+          <p>The Cisco VPN Client is simple to deploy and operate. It allows organizations to establish end-to-end, encrypted VPN tunnels for secure connectivity for mobile employees or telecommuters. </p>
+          <p></p>
+          <p>To initiate an IPsec connection using the Cisco VPN client, all the user must do is open the Cisco VPN client window, as shown in Figure 1. The Cisco VPN client application lists the available preconfigured sites. The user double-clicks a site to select it and the VPN client initiates the IPsec connection. In the user authentication dialog box, the user is authenticated with a username and password, as shown in Figure 2. After authentication, the Cisco VPN Client displays a connected status. </p>
+          <p></p>
+          <p>Most of the VPN parameters are defined on the Cisco IOS Easy VPN Server to simplify deployment. After a remote client initiates a VPN tunnel connection, the Cisco Easy VPN Server pushes the IPsec policies to the client, minimizing configuration requirements at the remote location. </p>
+          <p></p>
+          <p>This simple and highly scalable solution is ideal for large remote access deployments where it is impractical to configure policies individually for multiple remote PCs. This architecture also ensures that those connections are using up-to-date security policies and eliminates the operational costs associated with maintaining a consistent policy and key management method.</p>
+          <p></p>
+          <p>
+            <b>Note</b>: Configuring the Cisco VPN client is beyond the scope of this course. Check www.cisco.com for more information.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

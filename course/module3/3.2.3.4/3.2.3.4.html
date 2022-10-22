@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.2.3.4 PPP Configuration Options</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.2.3.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>PPP Operation</h1>
+        <h2>PPP Sessions</h2>
+      </div>
+      <div id="content">
+          <p>PPP can be configured to support various optional functions, as shown in Figure 1. These optional functions include:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>Authentication using either PAP or CHAP</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Compression using either Stacker or Predictor</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Multilink that combines two or more channels to increase the WAN bandwidth</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>To negotiate the use of these PPP options, the LCP link-establishment frames contain option information in the data field of the LCP frame, as shown in Figure 2. If a configuration option is not included in an LCP frame, the default value for that configuration option is assumed. </p>
+          <p></p>
+          <p>This phase is complete when a configuration acknowledgment frame has been sent and received.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

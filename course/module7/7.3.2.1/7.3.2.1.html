@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.3.2.1 Confidentiality with Encryption</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.3.2.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Introducing IPsec</h1>
+        <h2>IPsec Framework</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Confidentiality</b>
+          </p>
+          <p></p>
+          <p>VPN traffic is kept confidential with encryption. Plaintext data that is transported over the Internet can be intercepted and read. Encrypt the date to keep it private. Digitally encrypting the data renders it unreadable until it is unencrypted by the authorized receiver. </p>
+          <p></p>
+          <p>For encrypted communication to work, both the sender and the receiver must know the rules that are used to transform the original message into its coded form. Rules are based on algorithms and associated keys. In the context of encryption, an algorithm is a mathematical sequence of steps that combines a message, text, digits, or all three with a string of digits that are called a key. The output is an unreadable cipher string. The encryption algorithm also specifies how an encrypted message is decrypted. Decryption is extremely difficult or impossible without the correct key.</p>
+          <p></p>
+          <p>In the figure, Gail wants to send an electronic funds transfer (EFT) across the Internet to Jeremy. At the local end, the document is combined with a key and run through an encryption algorithm. The output is encrypted ciphertext. The ciphertext is then sent through the Internet. At the remote end, the message is recombined with a key and sent back through the encryption algorithm. The output is the original financial document.</p>
+          <p></p>
+          <p>Confidentiality is achieved through the encryption of traffic as it travels through a VPN. The degree of security depends on the key length of the encryption algorithm and the sophistication of the algorithm. If a hacker tries to hack the key through a brute-force attack, the number of possibilities to try is a function of the key length. The time to process all of the possibilities is a function of the computer power of the attacking device. The shorter the key, the easier it is to break. For example, where a relatively sophisticated computer may take approximately one year to break a 64-bit long key, the same computer may take anywhere from 10 to 19 years to decrypt a 128-bit long key.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1.2.1.2 Modules in the Enterprise Architecture</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_1.2.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Cisco Enterprise Architecture</h1>
+        <h2>Modular Network Design</h2>
+      </div>
+      <div id="content">
+          <p>A modular approach to network design further divides the three-layer hierarchical design, by pulling out specific blocks or modular areas. These basic modules are connected together via the core of the network. </p>
+          <p></p>
+          <p>Basic network modules include:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Access-distribution </b>- Also called the distribution block, this is the most familiar element and fundamental component of a campus design. (Figure 1).</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Services </b>- This is a generic block used to identify services such as centralized Lightweight Access Point Protocol (LWAPP) wireless controllers, unified communications services, policy gateways, and more. (Figure 2).</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Data center </b>- Originally called the server farm. This block is responsible for managing and maintaining many data systems that are vital to modern business operations. Employees, partners, and customers rely on data and resources in the data center to effectively create, collaborate, and interact. (Figure 3).</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Enterprise Edge </b>- Consists of the Internet Edge and the WAN Edge. These blocks offer connectivity to voice, video, and data services outside the enterprise. (Figure 4).</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

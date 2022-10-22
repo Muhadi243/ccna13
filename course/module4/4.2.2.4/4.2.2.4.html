@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.2.2.4 Example: Configuring Point-to-Point Subinterfaces</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.2.2.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Configure Frame Relay</h1>
+        <h2>Configure Subinterfaces</h2>
+      </div>
+      <div id="content">
+          <p>Figure 1 shows the previous topology but using point-to-point subinterfaces. Each PVC is a separate subnetwork. The router’s physical interfaces are divided into subinterfaces, with each subinterface on a separate subnetwork.</p>
+          <p></p>
+          <p>In Figure 2, R1 has two point-to-point subinterfaces. The s0/0/1.102 subinterface connects to R2, and the s0/0/1.103 subinterface connects to R3. Each subinterface is on a different subnet. </p>
+          <p></p>
+          <p>To configure subinterfaces on a physical interface, the following steps are required:</p>
+          <p></p>
+          <p>
+            <b>Step 1. </b>Remove any network layer address assigned to the physical interface. If the physical interface has an address, frames are not received by the local subinterfaces.</p>
+          <p></p>
+          <p>
+            <b>Step 2. </b>Configure Frame Relay encapsulation on the physical interface using the<span class="cmd"><b> encapsulation frame-relay </b></span>command.</p>
+          <p></p>
+          <p>
+            <b>Step 3. </b>For each of the defined PVCs, create a logical subinterface. Specify the port number, followed by a period (.) and the subinterface number. To make troubleshooting easier, it is suggested that the subinterface number matches the DLCI number. </p>
+          <p></p>
+          <p>
+            <b>Step 4.</b> Configure an IP address for the interface and set the bandwidth.</p>
+          <p></p>
+          <p>
+            <b>Step 5. </b>Configure the local DLCI on the subinterface using the<span class="cmd"><b> frame-relay interface-dlci </b></span>command. Recall that the Frame Relay service provider assigns the DLCI numbers.</p>
+          <p></p>
+          <p>Use the Syntax Checker in Figure 3 to configure router R2’s physical interface into point-to-point subinterfaces with the appropriate Frame Relay configuration.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

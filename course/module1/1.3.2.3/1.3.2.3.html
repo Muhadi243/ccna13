@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1.3.2.3 Data Center and Virtualization</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_1.3.2.3_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Evolving Network Architectures</h1>
+        <h2>Emerging Network Architectures</h2>
+      </div>
+      <div id="content">
+          <p>The Cisco Data Center/Virtualization architecture is built upon Cisco Data Center 3.0. It comprises a comprehensive set of virtualization technologies and services that bring the network, computing, storage, and virtualization platforms together.</p>
+          <p></p>
+          <p>The data center architecture consists of three components, as shown in Figure 1:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Cisco Unified Management Solutions </b>- Management solutions simplify and automate the process of deploying IT infrastructure and services with speed and enterprise reliability. Solutions operate transparently across physical and virtual resources in cloud environments.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Unified Fabric Solutions </b>- Flexible network solutions deliver network services to servers, storage, and applications, providing transparent convergence, scalability, and sophisticated intelligence. Solutions include Cisco Nexus switches, Catalyst switches, Cisco Fabric Manager, and Cisco NX-OS software.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Unified Computing Solutions </b>- Cisco’s next-generation data center system unites computing, network, storage access, and virtualization into a cohesive system designed to reduce total cost of ownership (TCO) and increase business agility. The Cisco Unified Computing System (Cisco UCS) is built with blade servers, rack-mount servers, fabric interconnects, and virtual interface cards (VICs).</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Click Play in Figure 2 to see a short video on the Cisco Unified Fabric.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>2.1.2.5 Packet Switching</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_2.1.2.5_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>WAN Technologies Overview</h1>
+        <h2>WAN Operations</h2>
+      </div>
+      <div id="content">
+          <p>In contrast to circuit switching, packet switching splits traffic data into packets that are routed over a shared network. Packet-switching networks do not require a circuit to be established, and they allow many pairs of nodes to communicate over the same channel. </p>
+          <p></p>
+          <p>The switches in a packet-switched network (PSN) determine the links that packets must be sent over based on the addressing information in each packet. The following are two approaches to this link determination:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Connectionless systems </b>- Full addressing information must be carried in each packet. Each switch must evaluate the address to determine where to send the packet. An example of a connectionless system is the Internet.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Connection-oriented systems </b>- The network predetermines the route for a packet, and each packet only has to carry an identifier. The switch determines the onward route by looking up the identifier in tables held in memory. The set of entries in the tables identifies a particular route or circuit through the system. When the circuit is established temporarily while a packet is traveling through it, and then breaks down again, it is called a virtual circuit (VC). An example of a connection-oriented system is Frame Relay. In the case of Frame Relay, the identifiers used are called data-link connection identifiers (DLCIs).</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Because the internal links between the switches are shared between many users, the cost of packet switching is lower than that of circuit-switching. However, delays (latency) and variability of delay (jitter) are greater in packet-switched networks than in circuit-switched networks. This is because the links are shared, and packets must be entirely received at one switch before moving to the next. Despite the latency and jitter inherent in shared networks, modern technology allows satisfactory transport of voice and video communications on these networks.</p>
+          <p></p>
+          <p>Click the Play button in the figure to see a packet-switching example. In the animation, SRV1 is sending data to SRV2. As the packet traverses the provider network, it arrives at the second provider switch. The packet is added to the queue and forwarded after the other packets in the queue have been forwarded. Eventually, the packet reaches SRV2.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

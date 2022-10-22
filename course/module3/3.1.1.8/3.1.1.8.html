@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.1.1.8 DTE-DCE</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.1.1.8_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Serial Point-to-Point Overview</h1>
+        <h2>Serial Communications</h2>
+      </div>
+      <div id="content">
+          <p>From the point of view of connecting to the WAN, a serial connection has a DTE device at one end of the connection and a DCE device at the other end. The connection between the two DCE devices is the WAN service provider transmission network, as shown in the figure. In this example: </p>
+          <p></p>
+          <p>
+            <ul>
+              <li>The CPE, which is generally a router, is the DTE. The DTE could also be a terminal, computer, printer, or fax machine if they connect directly to the service provider network.  </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>The DCE, commonly a modem or CSU/DSU, is the device used to convert the user data from the DTE into a form acceptable to the WAN service provider transmission link. This signal is received at the remote DCE, which decodes the signal back into a sequence of bits. The remote DCE then signals this sequence to the remote DTE.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>The Electronics Industry Association (EIA) and the International Telecommunication Union Telecommunications Standardization Sector (ITU-T) have been most active in the development of standards that allow DTEs to communicate with DCEs. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

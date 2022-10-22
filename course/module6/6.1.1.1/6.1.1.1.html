@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>6.1.1.1 Introducing Teleworking</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_6.1.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Teleworking</h1>
+        <h2>Benefits of Teleworking</h2>
+      </div>
+      <div id="content">
+          <p>Teleworking is working away from the traditional workplace, such as working from a home office. The reasons for choosing teleworking are varied and include everything from personal convenience to allowing sick or disabled employees the opportunity to continue working. </p>
+          <p></p>
+          <p>Teleworking is a broad term referring to conducting work by connecting to a workplace from a remote location, with the assistance of telecommunications. Efficient teleworking is possible because of broadband Internet connections, Virtual Private Networks (VPNs), Voice over IP (VoIP), and videoconferencing. </p>
+          <p></p>
+          <p>Many modern enterprises are offering employment opportunities for people who cannot commute to work every day, or for whom working out of a home office is more practical. These people, called teleworkers, must connect to the company network so that they can work and share information from their home offices. </p>
+          <p></p>
+          <p>Broadband solutions are integral to successful teleworking. This chapter details the benefits of teleworking and how broadband solutions enable teleworking as a smarter way to do business.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

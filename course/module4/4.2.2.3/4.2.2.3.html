@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>4.2.2.3 Configuring Point-to-Point Subinterfaces</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_4.2.2.3_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Configure Frame Relay</h1>
+        <h2>Configure Subinterfaces</h2>
+      </div>
+      <div id="content">
+          <p>Subinterfaces address the limitations of Frame Relay networks by providing a way to subdivide a partially meshed Frame Relay network into a number of smaller, fully meshed, or point-to-point, subnetworks. Each subnetwork is assigned its own network number and appears to the protocols as if it were reachable through a separate interface. </p>
+          <p></p>
+          <p></p>
+          <p>To create a subinterface, in global configuration mode, use the<span class="cmd"><b> interface serial </b></span>command followed by the physical port number, a period (.), and the subinterface number. To make troubleshooting easier, use the DLCI as the subinterface number. You must also specify whether the interface is point-to-multipoint or point-to-point using either the<span class="cmd"><b> multipoint </b></span>or<span class="cmd"><b> point-to-point </b></span>keyword because there is no default. These keywords are defined in Figure 1.</p>
+          <p></p>
+          <p>The following command creates a point-to-point subinterface for PVC 103 to R3: </p>
+          <p>
+            <span class="cmd">R1(config-if)# </span>
+            <span class="cmd">
+              <b>interface serial 0/0/0.103 point-to-point</b>
+            </span>
+          </p>
+          <p></p>
+          <p>
+            <b>Note</b>: For simplicity, only IPv4 addresses are used in this section to illustrate subinterfaces. The same concepts and commands also apply when using IPv6 addressing. </p>
+          <p></p>
+          <p>If the subinterface is configured as point-to-point, the local DLCI for the subinterface must also be configured to distinguish it from the physical interface. The DLCI is also required for multipoint subinterfaces for which Inverse ARP is enabled for IPv4. It is not required for multipoint subinterfaces configured with static route maps. </p>
+          <p></p>
+          <p>The Frame Relay service provider assigns the DLCI numbers. These numbers range from 16 to 992, and usually have only local significance. The range varies depending on the LMI used. </p>
+          <p></p>
+          <p>The <span class="cmd"><b>frame-relay interface-dlci</b></span> command configures the local DLCI on the subinterface, as shown in Figure 2:<span class="cmd"><b></b></span></p>
+          <p>
+            <span class="cmd">R1(config-subif)# </span>
+            <span class="cmd">
+              <b>frame-relay interface-dlci 103</b>
+            </span>
+          </p>
+          <p></p>
+          <p>
+            <b>Note</b>: Unfortunately, altering an existing Frame Relay subinterface configuration may fail to provide the expected result. In these situations, shut down the physical interface, make the appropriate changes to the subinterfaces and then re-enable the physical interface.  If the corrected configuration produces unexpected results, then it may be necessary to save the configuration and reload the router.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

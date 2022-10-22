@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.2.1.1 Introducing PPP</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.2.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>PPP Operation</h1>
+        <h2>Benefits of PPP</h2>
+      </div>
+      <div id="content">
+          <p>Recall that HDLC is the default serial encapsulation method when connecting two Cisco routers. With an added protocol type field, the Cisco version of HDLC is proprietary. Thus, Cisco HDLC can only work with other Cisco devices. However, when there is a need to connect to a non-Cisco router, PPP encapsulation should be used, as shown in the figure.</p>
+          <p></p>
+          <p>PPP encapsulation has been carefully designed to retain compatibility with most commonly used supporting hardware. PPP encapsulates data frames for transmission over Layer 2 physical links. PPP establishes a direct connection using serial cables, phone lines, trunk lines, cellular telephones, specialized radio links, or fiber-optic links. </p>
+          <p></p>
+          <p>PPP contains three main components: </p>
+          <p></p>
+          <p>
+            <ul>
+              <li>HDLC-like framing for transporting multiprotocol packets over point-to-point links. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Extensible Link Control Protocol (LCP) for establishing, configuring, and testing the data-link connection.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Family of Network Control Protocols (NCPs) for establishing and configuring different network layer protocols. PPP allows the simultaneous use of multiple network layer protocols. Some of the more common NCPs are Internet Protocol (IPv4) Control Protocol, IPv6 Control Protocol, AppleTalk Control Protocol, Novell IPX Control Protocol, Cisco Systems Control Protocol, SNA Control Protocol, and Compression Control Protocol.</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

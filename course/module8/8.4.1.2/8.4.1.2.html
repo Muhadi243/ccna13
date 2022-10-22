@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>8.4.1.2 Summary</title>
+    <!--  -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_8.4.1.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Summary</h1>
+        <h2>Summary</h2>
+      </div>
+      <div id="content">
+          <p></p>
+          <p>The time on Cisco network devices can be synchronized using NTP. </p>
+          <p>Cisco network devices can log syslog messages to an internal buffer, the console, a terminal line, or an external syslog server. A network administrator can configure the types of messages to be collected and where to send the time-stamped messages.</p>
+          <p>The SNMP protocol has three elements: the Manager, the Agent, and the MIB. The SNMP manager resides on the NMS, while the Agent and the MIB are on the client devices. The SNMP Manager can poll the client devices for information, or it can use a TRAP message that tells a client to report immediately if the client reaches a particular threshold. SNMP can also be used to change the configuration of a device. SNMPv3 is the recommended version because it provides security. SNMP is a comprehensive and powerful remote management tool. Nearly every item available in a<span class="cmd"><b> show </b></span>command is available through SNMP.</p>
+          <p>NetFlow is a Cisco IOS technology that is the standard for collecting IP operational data from IP networks. NetFlow efficiently measures what network resources are being used and for what purposes. NetFlow uses header fields to distinguish between data flows. NetFlow is a “push” technology, where the client device initiates the sending of data to a configured server. </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

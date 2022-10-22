@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.4.1.1 Troubleshooting PPP Serial Encapsulation</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.4.1.1_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Troubleshoot WAN Connectivity</h1>
+        <h2>Troubleshoot PPP</h2>
+      </div>
+      <div id="content">
+          <p>Recall that the<span class="cmd"><b> debug </b></span>command is used for troubleshooting and is accessed from privileged EXEC mode of the command-line interface. A<span class="cmd"><b> debug </b></span>output displays information about various router operations, related traffic generated or received by the router, and any error messages. It can consume a significant amount of resources, and the router is forced to process-switch the packets being debugged. The<span class="cmd"><b> debug </b></span>command must not be used as a monitoring tool; rather, it is meant to be used for a short period of time for troubleshooting. </p>
+          <p></p>
+          <p>Use the<span class="cmd"><b> debug ppp </b></span>command to display information about the operation of PPP. The figure shows the command syntax. Use the<span class="cmd"><b> no </b></span>form of this command to disable debugging output.</p>
+          <p></p>
+          <p>Use the<span class="cmd"><b> debug ppp </b></span>command when trying to search the following: </p>
+          <p>
+            <ul>
+              <li>NCPs that are supported on either end of a PPP connection </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Any loops that might exist in a PPP internetwork</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Nodes that are (or are not) properly negotiating PPP connections</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Errors that have occurred over the PPP connection</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Causes for CHAP session failures</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Causes for PAP session failures</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Information specific to the exchange of PPP connections using the Callback Control Protocol (CBCP), used by Microsoft clients</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>Incorrect packet sequence number information where MPPC compression is enabled</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

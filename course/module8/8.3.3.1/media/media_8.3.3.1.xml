@@ -1,0 +1,110 @@
+<textcomponents>
+	<!-- Slide 01-->
+		<component id="ID_s1_title">
+			<text><![CDATA[<b>NetFlow Collector Functions</b>]]></text>
+		</component>
+		<component id="ID_s1_txt01">
+			<text><![CDATA[Workstation]]></text>
+		</component>
+		<component id="ID_s1_txt02">
+			<text><![CDATA[Filter]]></text> 
+		</component>
+		<component id="ID_s1_txt03">
+			<text><![CDATA[User Interface]]></text> 
+		</component>
+		<component id="ID_s1_txt04">
+			<text><![CDATA[Aggregate]]></text> 
+		</component>
+		<component id="ID_s1_txt05">
+			<text><![CDATA[Config Files]]></text> 
+		</component>
+		<component id="ID_s1_txt06">
+			<text><![CDATA[Storage]]></text> 
+		</component>
+		<component id="ID_s1_txt07">
+			<text><![CDATA[NetFlow Consumer Applications]]></text> 
+		</component>
+	
+		
+	<!-- Slide 02-->
+		<component id="ID_s2_title">
+			<text><![CDATA[<b>NetFlow Collector Top Talkers</b>]]></text>
+		</component>
+		<component id="ID_s2_txt01">
+			<text><![CDATA[<b>Top 10 Conversations</b>]]></text> 
+		</component>
+		<component id="ID_s2_txt02">
+			<text><![CDATA[BOTH, LAST HOUR]]></text> 
+		</component>
+		<component id="ID_s2_txt03">
+			<text><![CDATA[EXPORT]]></text> 
+		</component>
+		<component id="ID_s2_txt04">
+			<text><![CDATA[HELP]]></text> 
+		</component>
+		<component id="ID_s2_txt05">
+			<text><![CDATA[<b>CONVERSATION</b>]]></text> 
+		</component>
+		<component id="ID_s2_txt06">
+			<text><![CDATA[<b>INGRESS BYTES</b>]]></text> 
+		</component>
+		<component id="ID_s2_txt07">
+			<text><![CDATA[<b>EGRESS BYTES</b>]]></text> 
+		</component>
+		<component id="ID_s2_txt08">
+			<text><![CDATA[<b>INGRESS PACKETS</b>]]></text> 
+		</component>
+		<component id="ID_s2_txt09">
+			<text><![CDATA[<b>EGRESS PACKETS</b>]]></text> 
+		</component>
+		<component id="ID_s2_txt10">
+			<text><![CDATA[<b>PERCENT</b>]]></text> 
+		</component>
+		<component id="ID_s2_txt11">
+			<text><![CDATA[Between KJOHNSTONXP and rapidshare.com (198.18.131.7)]]></text> 
+		</component>
+		<component id="ID_s2_txt12">
+			<text><![CDATA[354.4 Kbytes]]></text> 
+		</component>
+		<component id="ID_s2_txt13">
+			<text><![CDATA[10.7 Mbytes]]></text> 
+		</component>
+		<component id="ID_s2_txt14">
+			<text><![CDATA[621]]></text> 
+		</component>
+		<component id="ID_s2_txt15">
+			<text><![CDATA[30.47 k]]></text> 
+		</component>
+		<component id="ID_s2_txt16">
+			<text><![CDATA[21.82%]]></text> 
+		</component>
+		
+		<component id="ID_s2_txt17">
+			<text><![CDATA[Between mbishopwks and rapidshare.com (198.18.131.7)]]></text> 
+		</component>
+		<component id="ID_s2_txt18">
+			<text><![CDATA[243.0 Kbytes]]></text> 
+		</component>
+		<component id="ID_s2_txt19">
+			<text><![CDATA[9.0 Mbytes]]></text> 
+		</component>
+		<component id="ID_s2_txt20">
+			<text><![CDATA[445]]></text> 
+		</component>
+		<component id="ID_s2_txt21">
+			<text><![CDATA[18.77 k]]></text> 
+		</component>
+		<component id="ID_s2_txt22">
+			<text><![CDATA[18.16%]]></text> 
+		</component>
+		
+		
+		
+		
+		
+		
+	
+		
+		
+
+</textcomponents>

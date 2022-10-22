@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>9.2.3.8 Step 6 - Verify the Transport Layer</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_9.2.3.8_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Network Troubleshooting</h1>
+        <h2>Troubleshooting IP Connectivity</h2>
+      </div>
+      <div id="content">
+          <p>
+            <b>Troubleshooting the Transport Layer</b>
+          </p>
+          <p>If the network layer appears to be functioning as expected, but users are still unable to access resources, then the network administrator must begin troubleshooting the upper layers. Two of the most common issues that affect transport layer connectivity include ACL configurations and NAT configurations.  A common tool for testing transport layer functionality is the Telnet utility.  </p>
+          <p></p>
+          <p>
+            <b>Caution</b>: While Telnet can be used to test the transport layer, for security reasons, SSH should be used to remotely manage and configure devices.</p>
+          <p></p>
+          <p>A network administrator is troubleshooting a problem where someone cannot send email through a particular SMTP server. The administrator pings the server, and it responds. This means that the network layer, and all layers below the network layer, between the user and the server is operational. The administrator knows the issue is with Layer 4 or up and must start troubleshooting those layers.</p>
+          <p></p>
+          <p>Although the telnet server application runs on its own well-known port number 23 and Telnet clients connect to this port by default, a different port number can be specified on the client to connect to any TCP port that must be tested. This indicates whether the connection is accepted (as indicated by the word “Open” in the output), refused, or times out. From any of those responses, further conclusions can be made concerning the connectivity. Certain applications, if they use an ASCII-based session protocol, might even display an application banner, it may be possible to trigger some responses from the server by typing in certain keywords, such as with SMTP, FTP, and HTTP.</p>
+          <p></p>
+          <p>Given the previous scenario, the administrator Telnets from PC1 to the server HQ, using IPv6, and the Telnet session is successful, as shown in Figure 1. In Figure 2 the administrator attempts to Telnet to the same server, using port 80. The output verifies that the transport layer is connecting successfully from PC1 to HQ. However, the server is not accepting connections on port 80.</p>
+          <p></p>
+          <p>The example in Figure 3 shows a successful Telnet connection from R1 to R3, over IPv6. Figure 4 is a similar Telnet attempt using port 80. Again, the output verifies a success transport layer connection, but R3 is refusing the connection using port 80.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

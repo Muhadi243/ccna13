@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>3.1.1.4 Time-Division Multiplexing</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_3.1.1.4_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Serial Point-to-Point Overview</h1>
+        <h2>Serial Communications</h2>
+      </div>
+      <div id="content">
+          <p>With a leased line, despite the fact that customers are paying for dedicated services, and dedicated bandwidth is provided to the customer, the carrier still uses multiplexing technologies within the network. Multiplexing refers to a scheme that allows multiple logical signals to share a single physical channel. Two common types of multiplexing are time-division multiplexing (TDM) and statistical time-division multiplexing (STDM).</p>
+          <p></p>
+          <p>
+            <b>TDM</b>
+          </p>
+          <p></p>
+          <p>Bell Laboratories originally invented TDM to maximize the amount of voice traffic carried over a medium. Before multiplexing, each telephone call required its own physical link. This was an expensive and unscalable solution. TDM divides the bandwidth of a single link into separate time slots. TDM transmits two or more channels (data stream) over the same link by allocating a different time slot for the transmission of each channel. In effect, the channels take turns using the link. </p>
+          <p></p>
+          <p>TDM is a physical layer concept. It has no regard for the nature of the information that is multiplexed on to the output channel. TDM is independent of the Layer 2 protocol that has been used by the input channels.</p>
+          <p></p>
+          <p>TDM can be explained by an analogy to highway traffic. To transport traffic from four roads to another city, all traffic can be sent on one lane if the roads are equally serviced and the traffic is synchronized. If each of the four roads puts a car on to the main highway every four seconds, the highway gets a car at the rate of one each second. As long as the speed of all the cars is synchronized, there is no collision. At the destination, the reverse happens and the cars are taken off the highway and fed to the local roads by the same synchronous mechanism.</p>
+          <p></p>
+          <p>This is the principle used in synchronous TDM when sending data over a link. TDM increases the capacity of the transmission link by dividing transmission time into smaller, equal intervals so that the link carries the bits from multiple input sources. </p>
+          <p></p>
+          <p>In the figure, a multiplexer (MUX) at the transmitter accepts three separate signals. The MUX breaks each signal into segments. The MUX puts each segment into a single channel by inserting each segment into a time slot. </p>
+          <p></p>
+          <p>A MUX at the receiving end reassembles the TDM stream into the three separate data streams based only on the timing of the arrival of each bit. A technique called bit interleaving keeps track of the number and sequence of the bits from each specific transmission so that they can be quickly and efficiently reassembled into their original form upon receipt. Byte interleaving performs the same functions, but because there are eight bits in each byte, the process needs a bigger or longer time slot.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

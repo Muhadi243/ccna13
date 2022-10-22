@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>9.1.2.2 Gathering Symptoms</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_9.1.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Troubleshooting with a Systematic Approach</h1>
+        <h2>Troubleshooting Process</h2>
+      </div>
+      <div id="content">
+          <p>When gathering symptoms, it is important that the administrator gather facts and evidence to progressively eliminate possible causes, and eventually identify the root cause of the issue. By analyzing the information, the network administrator formulates a hypothesis to propose possible causes and solutions, while eliminating others.</p>
+          <p></p>
+          <p>There are five steps to gathering information:</p>
+          <p></p>
+          <p>
+            <b>Step 1. Gather information </b>- Gather information from the trouble ticket, users, or end systems affected by the problem to form a definition of the problem.</p>
+          <p></p>
+          <p>
+            <b>Step 2. Determine ownership </b>- If the problem is within the control of the organization, move onto the next stage. If the problem is outside the boundary of the organization’s control (for example, lost Internet connectivity outside of the autonomous system), contact an administrator for the external system before gathering additional network symptoms.</p>
+          <p></p>
+          <p>
+            <b>Step 3. Narrow the scope </b>- Determine if the problem is at the core, distribution, or access layer of the network. At the identified layer, analyze the existing symptoms and use your knowledge of the network topology to determine which piece of equipment is the most likely cause.</p>
+          <p></p>
+          <p>
+            <b>Step 4. Gather symptoms from suspect devices </b>- Using a layered troubleshooting approach, gather hardware and software symptoms from the suspect devices. Start with the most likely possibility and use knowledge and experience to determine if the problem is more likely a hardware or software configuration problem.</p>
+          <p></p>
+          <p>
+            <b>Step 5. Document symptoms </b>- Sometimes the problem can be solved using the documented symptoms. If not, begin the isolating stage of the general troubleshooting process. </p>
+          <p></p>
+          <p>Use Cisco IOS commands and other tools to gather symptoms about the network, such as:</p>
+          <p>
+            <ul>
+              <li>
+                <span class="cmd">
+                  <b>ping</b>
+                </span>,<span class="cmd"><b> traceroute</b></span>, and<span class="cmd"><b> telnet </b></span>commands</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <span class="cmd">
+                  <b>show </b>
+                </span>and<span class="cmd"><b> debug </b></span>commands</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>packet captures</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>device logs</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>The table in the figure describes the common Cisco IOS commands used to gather the symptoms of a network problem.</p>
+          <p></p>
+          <p>
+            <b>Note</b>: Although the<span class="cmd"><b> debug </b></span>command is an important tool for gathering symptoms, it generates a large amount of console message traffic and the performance of a network device can be noticeably affected. If the<span class="cmd"><b> debug </b></span>must be performed during normal working hours, warn network users that a troubleshooting effort is underway and that network performance may be affected. Remember to disable debugging when you are done.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

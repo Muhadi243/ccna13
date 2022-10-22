@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>1.3.2.2 Collaboration Architecture</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_1.3.2.2_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Evolving Network Architectures</h1>
+        <h2>Emerging Network Architectures</h2>
+      </div>
+      <div id="content">
+          <p>Working in a collaborative environment helps increase productivity. Collaboration and other types of groupware are used to bring people together for one reason or another: such as to socialize, to work together, to cooperate and contribute to the production of something, and to innovate. </p>
+          <p></p>
+          <p>The Cisco Collaboration Architecture comprises a portfolio of products, applications, software development kits (SDKs), and APIs. The individual components work together to provide a comprehensive solution.</p>
+          <p></p>
+          <p>As shown in the figure, Cisco’s collaboration architecture is composed of three layers:</p>
+          <p>
+            <ul>
+              <li>
+                <b>Application and Devices </b>- This layer contains unified communications and conference applications such as Cisco WebEx Meetings, WebEx Social, Cisco Jabber, and TelePresence. The applications within this layer help users stay connected and productive. These applications include voice, video, web conferencing, messaging, mobile applications, and enterprise social software.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Collaboration Services </b>- This layer supports collaboration applications including the following services: presence, location, session management, contact management, client frameworks, tagging, and policy and security management.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Network and Computer Infrastructure </b>- This layer is responsible for allowing collaboration anytime, from anywhere, on any device. It includes virtual machines, the network, and storage.</li>
+            </ul>
+          </p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>

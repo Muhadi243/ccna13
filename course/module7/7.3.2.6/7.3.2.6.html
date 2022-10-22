@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>7.3.2.6 IPsec Protocol Framework</title>
+    <!-- Content -->
+    <link type="text/css" rel="stylesheet" href="../../common/styles/course.css"/>
+	<script type="text/javascript" src="../../common/scripts/jquery_bundle.min.js"></script>
+	<script type="text/javascript" src="../../common-ext/scripts/page.js"></script>
+    <script>
+      var myLayout; 
+      $(document).ready(function () {
+        var frame = document.getElementById('mainFrame');
+        if (isTextOnly(window)) {
+          frame.setAttribute('src', 'media_7.3.2.6_longdesc.txt');
+        } else {
+          frame.setAttribute('src', 'media/index.html');
+        }
+    	myLayout = $('body').layout({
+          west__size: 300,
+          west__minSize: 300,
+          center__minWidth: 100,
+          resizerTip: 'Resize',
+          sliderTip: 'Slide Open',
+          togglerTip_open: 'Close',
+          togglerTip_closed: 'Open',
+          stateManagement__enabled: true,
+          maskIframesOnResize: true,
+          livePaneResizing: true,
+          onresize_end: resizeTextDiv,
+          stateManagement__cookie__name: "ui_pane",
+          stateManagement__cookie__expires: 1,
+          stateManagement__cookie__path: "/"
+        });
+      });
+      function resizeTextDiv() {
+        var DivHeight = document.getElementById("header").offsetHeight;
+        document.getElementById("content").style.top = String(DivHeight) + 'px';
+      }
+    </script>
+  </head>
+  <body class="onecolumn" onLoad="resizeTextDiv()">
+    <div class="ui-layout-west">
+      <div id="header">
+        <h1>Introducing IPsec</h1>
+        <h2>IPsec Framework</h2>
+      </div>
+      <div id="content">
+          <p>As stated earlier, the IPsec protocol framework describes the messaging to secure the communications, but it relies on existing algorithms.</p>
+          <p></p>
+          <p>There are two main IPsec protocols depicted in Figure 1:</p>
+          <p></p>
+          <p>
+            <ul>
+              <li>
+                <b>Authentication Header (AH) </b>- AH is the appropriate protocol to use when confidentiality is not required or permitted. It provides data authentication and integrity for IP packets that are passed between two systems. However, AH does not provide data confidentiality (encryption) of packets. All text is transported in plaintext. Used alone, the AH protocol provides weak protection. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Encapsulating Security Payload (ESP) </b>- A security protocol that provides confidentiality and authentication by encrypting the IP packet. IP packet encryption conceals the data and the identities of the source and destination. ESP authenticates the inner IP packet and ESP header. Authentication provides data origin authentication and data integrity. Although both encryption and authentication are optional in ESP, at a minimum, one of them must be selected.</li>
+            </ul>
+          </p>
+          <p></p>
+          <p>Figure 2 illustrates the components of IPsec configuration. There are four basic building blocks of the IPsec framework that must be selected. </p>
+          <p>
+            <ul>
+              <li>
+                <b>IPsec framework protocol </b>- When configuring an IPsec gateway to provide security services, an IPsec protocol must be selected. The choices are some combination of ESP and AH. Realistically, the ESP or ESP+AH options are almost always selected because AH itself does not provide encryption, as shown in Figure 3.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Confidentiality (If IPsec is implemented with ESP) </b>- The encryption algorithm chosen should best meet the desired level of security: DES, 3DES, or AES. AES is strongly recommended, with AES-GCM providing the greatest security.</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Integrity </b>- Guarantees that the content has not been altered in transit. Implemented through the use of hash algorithms. Choices include MD5 and SHA. </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>Authentication </b>- Represents how devices on either end of the VPN tunnel are authenticated. The two methods are PSK or RSA.  </li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li>
+                <b>DH algorithm group </b>- Represents how a shared secret key is established between peers. There are several options, but DH24 provides the greatest security. </li>
+            </ul>
+          </p>
+          <p></p>
+          <p>It is the combination of these building blocks that provides the confidentiality, integrity, and authentication options for IPsec VPNs. </p>
+          <p></p>
+          <p>
+            <b>Note</b>: This section introduced IPsec to provide an understanding of how IPsec secures VPN tunnels. Configuring IPsec VPNs are beyond the scope of this course.</p>
+        </div>
+    </div>
+    <iframe id="mainFrame" name="mainFrame" frameborder="0" class="ui-layout-center" alt="interactive graphic"></iframe>
+  </body>
+</html>
